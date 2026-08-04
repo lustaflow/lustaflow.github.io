@@ -306,4 +306,21 @@ nav ul{
 
 }
 
+}/* ===== ANIMACIONES ===== */
+
+.hero-text,
+.hero-img,
+.card{
+
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+
+}
+
+.visible{
+
+    opacity:1;
+    transform:translateY(0);
+
 }
