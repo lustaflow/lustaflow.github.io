@@ -956,3 +956,215 @@ nav ul{
 
 
 }
+/* =========================
+   PÁGINA ESCRITOS
+========================= */
+
+.hero-small{
+
+    min-height:55vh;
+
+    justify-content:center;
+    text-align:center;
+
+}
+
+.hero-content{
+
+    max-width:800px;
+
+}
+
+.hero-content h1{
+
+    font-size:58px;
+    margin-bottom:20px;
+
+}
+
+.hero-content p{
+
+    color:#b8c2cc;
+    font-size:18px;
+
+}
+
+
+/* CONTENEDOR */
+
+.section{
+
+    max-width:1200px;
+    margin:80px auto;
+    padding:20px;
+
+}
+
+.section-title{
+
+    text-align:center;
+    font-size:38px;
+    margin-bottom:50px;
+
+}
+
+
+/* GLASS CARD */
+
+.glass-card{
+
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    transition:.35s;
+
+}
+
+.glass-card:hover{
+
+    transform:translateY(-6px);
+    border-color:#00d9ff;
+
+}
+
+.glass-card span{
+
+    color:#00d9ff;
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+}
+
+.glass-card h3{
+
+    margin:15px 0;
+    font-size:28px;
+
+}
+
+.glass-card p{
+
+    color:#c5ced8;
+    line-height:1.8;
+
+}
+
+
+/* ARTÍCULO */
+
+.article{
+
+    max-width:850px;
+    margin:auto;
+
+}
+
+.article h1{
+
+    font-size:52px;
+    margin-bottom:15px;
+
+}
+
+.article h2{
+
+    margin:45px 0 20px;
+
+}
+
+.article p{
+
+    font-size:18px;
+    line-height:2;
+    color:#d7dfe8;
+    margin-bottom:25px;
+
+}
+
+.article blockquote{
+
+    margin:40px 0;
+    padding:25px;
+
+    border-left:4px solid #00d9ff;
+
+    background:rgba(255,255,255,.04);
+
+    font-style:italic;
+
+}
+
+
+/* BOTÓN VOLVER */
+
+.back-button{
+
+    text-align:center;
+    margin-top:60px;
+
+}
+
+.back-button .btn{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    background:#00d9ff;
+
+    color:#081018;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.back-button .btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 30px rgba(0,217,255,.35);
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+
+    font-size:40px;
+
+}
+
+.article h1{
+
+    font-size:36px;
+
+}
+
+.article p{
+
+    font-size:17px;
+
+}
+
+.glass-card{
+
+    padding:25px;
+
+}
+
+}
