@@ -1,4 +1,4 @@
-/* ======== ESTILOS GENERALES ======== */
+/* ===== RESET ===== */
 
 *{
     margin:0;
@@ -12,29 +12,34 @@ html{
 
 body{
 
-    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-family:'Poppins',sans-serif;
 
-    background:#fafafa;
+    background:#0d1117;
 
-    color:#222;
+    color:white;
 
-    line-height:1.7;
+    line-height:1.6;
 
 }
 
-/* ======== MENÚ ======== */
+
+/* ===== NAV ===== */
 
 header{
 
-    position:sticky;
+    position:fixed;
+
+    width:100%;
 
     top:0;
 
-    background:white;
+    left:0;
 
-    border-bottom:1px solid #ececec;
+    z-index:999;
 
-    z-index:1000;
+    background:rgba(13,17,23,.85);
+
+    backdrop-filter:blur(12px);
 
 }
 
@@ -50,15 +55,17 @@ nav{
 
     align-items:center;
 
-    padding:18px;
+    padding:20px;
 
 }
 
 .logo{
 
-    font-size:1.4rem;
+    font-size:28px;
 
     font-weight:700;
+
+    letter-spacing:3px;
 
 }
 
@@ -66,89 +73,142 @@ nav ul{
 
     display:flex;
 
-    list-style:none;
+    gap:30px;
 
-    gap:25px;
+    list-style:none;
 
 }
 
 nav a{
 
-    color:#222;
+    color:white;
 
     text-decoration:none;
 
-    transition:.25s;
+    transition:.3s;
 
 }
 
 nav a:hover{
 
-    color:#0077cc;
+    color:#00d9ff;
 
 }
 
-/* ======== PORTADA ======== */
+
+/* ===== HERO ===== */
 
 .hero{
 
-    min-height:85vh;
+    min-height:100vh;
 
     display:flex;
 
-    justify-content:center;
+    justify-content:space-between;
 
     align-items:center;
 
-    text-align:center;
+    max-width:1200px;
 
-    padding:40px;
+    margin:auto;
+
+    padding:120px 20px 60px;
+
+    gap:60px;
 
 }
 
 .hero-text{
 
-    max-width:800px;
+    flex:1;
 
 }
 
-.hero h1{
+.hero-text h1{
 
-    font-size:4rem;
+    font-size:64px;
 
-    margin-bottom:15px;
-
-}
-
-.hero h2{
-
-    font-size:1.5rem;
-
-    color:#666;
+    line-height:1.1;
 
     margin-bottom:25px;
 
-    font-weight:400;
+}
+
+.hero-text p{
+
+    color:#b7c0cb;
+
+    font-size:18px;
+
+    margin-bottom:35px;
 
 }
 
-.hero p{
+.boton{
 
-    font-size:1.1rem;
+    display:inline-block;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    background:#00d9ff;
+
+    color:#000;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
 
 }
 
-/* ======== TARJETAS ======== */
+.boton:hover{
 
-.destacados{
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,217,255,.35);
+
+}
+
+
+/* ===== FOTO ===== */
+
+.hero-img{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-img img{
+
+    width:100%;
+
+    max-width:420px;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+}
+
+
+/* ===== TARJETAS ===== */
+
+.cards{
 
     max-width:1200px;
 
-    margin:80px auto;
+    margin:100px auto;
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(3,1fr);
 
     gap:30px;
 
@@ -156,73 +216,93 @@ nav a:hover{
 
 }
 
-.destacados article{
+.card{
 
-    background:white;
+    background:rgba(255,255,255,.05);
 
-    border-radius:18px;
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
 
     padding:35px;
 
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
-
-    transition:.3s;
+    transition:.35s;
 
 }
 
-.destacados article:hover{
+.card:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-10px);
+
+    border-color:#00d9ff;
 
 }
 
-.destacados h3{
+.card h2{
 
     margin-bottom:15px;
 
 }
 
-/* ======== PIE ======== */
+.card p{
+
+    color:#c8d1dc;
+
+}
+
+
+/* ===== FOOTER ===== */
 
 footer{
 
     text-align:center;
 
-    padding:40px;
+    padding:50px 20px;
 
-    color:#666;
+    color:#8b949e;
 
 }
 
-/* ======== MÓVIL ======== */
 
-@media(max-width:768px){
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
 
 nav{
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:20px;
+    gap:15px;
 
 }
 
 nav ul{
 
-flex-wrap:wrap;
+    flex-wrap:wrap;
 
-justify-content:center;
-
-}
-
-.hero h1{
-
-font-size:2.5rem;
+    justify-content:center;
 
 }
 
-.hero h2{
+.hero{
 
-font-size:1.2rem;
+    flex-direction:column-reverse;
+
+    text-align:center;
+
+}
+
+.hero-text h1{
+
+    font-size:42px;
+
+}
+
+.cards{
+
+    grid-template-columns:1fr;
 
 }
 
