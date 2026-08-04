@@ -1,141 +1,93 @@
 // =========================
-// MENÚ AL HACER SCROLL
+// HEADER AL HACER SCROLL
 // =========================
-
 
 const header = document.querySelector("header");
 
-
 window.addEventListener("scroll", () => {
 
+    if (!header) return;
 
-    if(window.scrollY > 60){
-
+    if (window.scrollY > 60) {
 
         header.style.background = "rgba(13,17,23,.96)";
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.45)";
 
-        header.style.boxShadow =
-        "0 10px 30px rgba(0,0,0,.45)";
+    } else {
 
-
-    }else{
-
-
-        header.style.background =
-        "rgba(13,17,23,.75)";
-
+        header.style.background = "rgba(13,17,23,.75)";
         header.style.boxShadow = "none";
-
 
     }
 
-
 });
 
 
-
-
 // =========================
-// ANIMACIONES AL HACER SCROLL
+// ANIMACIONES
 // =========================
-
 
 const elementos = document.querySelectorAll(
-    ".hero-text, .hero-img, .intro, .card, .quote"
+    ".hero-text, .hero-img, .hero-content, .intro, .card, .glass-card, .section, .article, .quote, .biografia article, .contact-card, .back-button"
 );
 
+const observador = new IntersectionObserver((entradas) => {
 
+    entradas.forEach((entrada) => {
 
-const observador = new IntersectionObserver((entradas)=>{
-
-
-    entradas.forEach((entrada)=>{
-
-
-        if(entrada.isIntersecting){
-
+        if (entrada.isIntersecting) {
 
             entrada.target.classList.add("visible");
 
-
         }
-
 
     });
 
+}, {
 
-
-},{
-
-    threshold:0.15
+    threshold: 0.15
 
 });
 
-
-
-elementos.forEach((elemento)=>{
-
+elementos.forEach((elemento) => {
 
     observador.observe(elemento);
 
-
 });
 
 
-
-
 // =========================
-// EFECTO SUAVE EN BOTONES
+// EFECTO BOTONES
 // =========================
 
+const botones = document.querySelectorAll(".boton, .btn");
 
-const botones = document.querySelectorAll(".boton");
+botones.forEach((boton) => {
 
+    boton.addEventListener("mouseenter", () => {
 
-
-botones.forEach((boton)=>{
-
-
-    boton.addEventListener("mouseenter",()=>{
-
-
-        boton.style.transform="translateY(-5px)";
-
+        boton.style.transform = "translateY(-5px)";
 
     });
 
+    boton.addEventListener("mouseleave", () => {
 
-
-    boton.addEventListener("mouseleave",()=>{
-
-
-        boton.style.transform="translateY(0)";
-
+        boton.style.transform = "translateY(0)";
 
     });
-
-
 
 });
-
-
 
 
 // =========================
 // AÑO AUTOMÁTICO FOOTER
 // =========================
 
+const footer = document.querySelector("footer p");
 
-const año = document.querySelector("footer p");
+if (footer) {
 
-
-if(año){
-
-
-    const fecha = new Date();
-
-    año.innerHTML =
-    `© ${fecha.getFullYear()} Jordi Lostaló. Todos los derechos reservados.`;
-
+    footer.innerHTML =
+        `© ${new Date().getFullYear()} LUSTAFLOW · Todos los derechos reservados.`;
 
 }
