@@ -788,3 +788,171 @@ nav ul{
 
 
 }
+/* =========================
+   PÁGINA CONTACTO
+========================= */
+
+
+.contact-container{
+
+    max-width:1100px;
+
+    margin:80px auto;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+}
+
+
+
+
+.contact-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    transition:.4s;
+
+}
+
+
+
+
+.contact-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00d9ff;
+
+}
+
+
+
+
+
+.contact-card h2{
+
+    font-size:32px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.contact-card p{
+
+    color:#c5ced8;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+/* ENLACES DE CONTACTO */
+
+
+.contact-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+
+
+
+
+.contact-links a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px 20px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.contact-links a:hover{
+
+    background:rgba(0,217,255,.1);
+
+    border-color:#00d9ff;
+
+    transform:translateX(8px);
+
+    color:#00d9ff;
+
+}
+
+
+
+
+
+
+/* RESPONSIVE CONTACTO */
+
+
+@media(max-width:800px){
+
+
+.contact-container{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.contact-card{
+
+    padding:30px;
+
+}
+
+
+}
