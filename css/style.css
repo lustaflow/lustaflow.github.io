@@ -630,3 +630,161 @@ nav ul{
 
 
 }
+/* =========================
+   PÁGINA SOBRE MÍ
+========================= */
+
+
+.page-hero{
+
+    min-height:80vh;
+
+}
+
+
+
+.biografia{
+
+    max-width:950px;
+
+    margin:80px auto;
+
+    padding:20px;
+
+}
+
+
+
+.biografia article{
+
+    margin-bottom:90px;
+
+    padding:45px;
+
+    background:rgba(255,255,255,.04);
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.4s;
+
+}
+
+
+
+.biografia article:hover{
+
+    border-color:rgba(0,217,255,.5);
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.biografia h2{
+
+    font-size:32px;
+
+    margin-bottom:25px;
+
+    color:white;
+
+}
+
+
+
+.biografia p{
+
+    color:#c5ced8;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* Primera letra estilo editorial */
+
+.biografia article:first-child p:first-of-type::first-letter{
+
+    font-size:55px;
+
+    font-weight:700;
+
+    float:left;
+
+    line-height:0.9;
+
+    padding-right:10px;
+
+    color:#00d9ff;
+
+}
+
+
+
+
+
+/* Separación visual entre capítulos */
+
+
+.biografia article::after{
+
+    content:"";
+
+    display:block;
+
+    width:60px;
+
+    height:3px;
+
+    background:#00d9ff;
+
+    margin-top:35px;
+
+}
+
+
+
+
+
+/* Ajuste móvil */
+
+
+@media(max-width:700px){
+
+
+    .biografia article{
+
+        padding:25px;
+
+        margin-bottom:50px;
+
+    }
+
+
+    .biografia h2{
+
+        font-size:26px;
+
+    }
+
+
+    .biografia p{
+
+        font-size:16px;
+
+    }
+
+
+}
