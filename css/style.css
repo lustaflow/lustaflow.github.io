@@ -1,4 +1,6 @@
-/* ===== RESET ===== */
+/* =========================
+   RESET GENERAL
+========================= */
 
 *{
     margin:0;
@@ -6,42 +8,55 @@
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
+
 
 body{
 
     font-family:'Poppins',sans-serif;
 
-    background:#0d1117;
+    background:
+    radial-gradient(circle at top left,#12233b 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#003b4a 0%,transparent 35%),
+    #0d1117;
 
     color:white;
 
     line-height:1.6;
 
+    overflow-x:hidden;
+
 }
 
 
-/* ===== NAV ===== */
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
 
 header{
 
     position:fixed;
 
-    width:100%;
-
     top:0;
 
     left:0;
 
-    z-index:999;
+    width:100%;
 
-    background:rgba(13,17,23,.85);
+    z-index:1000;
 
-    backdrop-filter:blur(12px);
+    background:rgba(13,17,23,.75);
+
+    backdrop-filter:blur(15px);
 
 }
+
+
 
 nav{
 
@@ -49,15 +64,17 @@ nav{
 
     margin:auto;
 
+    padding:20px;
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    padding:20px;
-
 }
+
+
 
 .logo{
 
@@ -65,19 +82,23 @@ nav{
 
     font-weight:700;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
 }
+
+
 
 nav ul{
 
-    display:flex;
-
-    gap:30px;
-
     list-style:none;
 
+    display:flex;
+
+    gap:25px;
+
 }
+
+
 
 nav a{
 
@@ -85,9 +106,13 @@ nav a{
 
     text-decoration:none;
 
+    font-size:15px;
+
     transition:.3s;
 
 }
+
+
 
 nav a:hover{
 
@@ -96,27 +121,33 @@ nav a:hover{
 }
 
 
-/* ===== HERO ===== */
+
+/* =========================
+   HERO
+========================= */
+
 
 .hero{
 
     min-height:100vh;
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
     max-width:1200px;
 
     margin:auto;
 
-    padding:120px 20px 60px;
+    padding:130px 20px 80px;
 
-    gap:60px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:70px;
 
 }
+
+
 
 .hero-text{
 
@@ -124,25 +155,60 @@ nav a:hover{
 
 }
 
-.hero-text h1{
 
-    font-size:64px;
 
-    line-height:1.1;
+.subtitle{
 
-    margin-bottom:25px;
+    color:#00d9ff;
+
+    letter-spacing:5px;
+
+    font-size:14px;
+
+    font-weight:600;
 
 }
+
+
+
+.hero-text h1{
+
+    font-size:68px;
+
+    line-height:1.05;
+
+    margin:20px 0 30px;
+
+}
+
+
 
 .hero-text p{
 
-    color:#b7c0cb;
+    color:#b8c2cc;
+
+    max-width:600px;
 
     font-size:18px;
 
-    margin-bottom:35px;
+    margin-bottom:40px;
 
 }
+
+
+
+/* BOTONES */
+
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+
 
 .boton{
 
@@ -150,30 +216,56 @@ nav a:hover{
 
     padding:15px 35px;
 
-    border-radius:40px;
+    border-radius:50px;
 
     background:#00d9ff;
 
-    color:#000;
+    color:#001018;
 
     text-decoration:none;
 
     font-weight:600;
 
-    transition:.3s;
+    transition:.35s;
 
 }
+
+
 
 .boton:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
-    box-shadow:0 10px 25px rgba(0,217,255,.35);
+    box-shadow:0 15px 35px rgba(0,217,255,.35);
 
 }
 
 
-/* ===== FOTO ===== */
+
+.boton.secundario{
+
+    background:transparent;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.3);
+
+}
+
+
+
+.boton.secundario:hover{
+
+    border-color:#00d9ff;
+
+    color:#00d9ff;
+
+}
+
+
+
+/* IMAGEN */
+
 
 .hero-img{
 
@@ -185,98 +277,264 @@ nav a:hover{
 
 }
 
+
+
 .hero-img img{
 
     width:100%;
 
-    max-width:420px;
+    max-width:430px;
 
-    border-radius:20px;
+    border-radius:25px;
 
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.6);
 
 }
 
 
-/* ===== TARJETAS ===== */
+
+/* =========================
+   INTRO
+========================= */
+
+
+.intro{
+
+    max-width:900px;
+
+    margin:80px auto;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+
+
+.intro h2{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.intro p{
+
+    color:#b8c2cc;
+
+    font-size:18px;
+
+}
+
+
+
+/* =========================
+   TARJETAS
+========================= */
+
 
 .cards{
 
     max-width:1200px;
 
-    margin:100px auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
+    margin:80px auto;
 
     padding:20px;
 
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
 }
+
+
 
 .card{
 
-    background:rgba(255,255,255,.05);
+    background:rgba(255,255,255,.06);
 
-    backdrop-filter:blur(10px);
+    border:
 
-    border:1px solid rgba(255,255,255,.08);
+    1px solid rgba(255,255,255,.1);
 
-    border-radius:20px;
+    backdrop-filter:blur(12px);
 
     padding:35px;
 
-    transition:.35s;
+    border-radius:25px;
+
+    transition:.4s;
 
 }
 
+
+
 .card:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-12px);
 
     border-color:#00d9ff;
 
 }
 
+
+
 .card h2{
 
-    margin-bottom:15px;
+    margin-bottom:20px;
 
 }
+
+
 
 .card p{
 
-    color:#c8d1dc;
+    color:#c5ced8;
+
+    margin-bottom:25px;
 
 }
 
 
-/* ===== FOOTER ===== */
+
+.card a{
+
+    color:#00d9ff;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+
+/* =========================
+   FRASE FINAL
+========================= */
+
+
+.quote{
+
+    max-width:900px;
+
+    margin:120px auto;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+}
+
+
+
+.quote h2{
+
+    font-size:38px;
+
+    font-weight:600;
+
+}
+
+
+
+.quote p{
+
+    color:#9da8b3;
+
+    margin-top:15px;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
 
 footer{
 
     text-align:center;
 
-    padding:50px 20px;
+    padding:60px 20px;
 
-    color:#8b949e;
+    border-top:
+
+    1px solid rgba(255,255,255,.08);
+
+    color:#89939e;
 
 }
 
 
-/* ===== RESPONSIVE ===== */
+footer h3{
 
-@media(max-width:900px){
+    color:white;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+
+.hero-text,
+.hero-img,
+.card,
+.intro,
+.quote{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:all .8s ease;
+
+}
+
+
+
+.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+
+@media(max-width:1000px){
+
 
 nav{
 
     flex-direction:column;
 
-    gap:15px;
+    gap:20px;
 
 }
+
 
 nav ul{
 
@@ -286,6 +544,8 @@ nav ul{
 
 }
 
+
+
 .hero{
 
     flex-direction:column-reverse;
@@ -294,11 +554,47 @@ nav ul{
 
 }
 
-.hero-text h1{
 
-    font-size:42px;
+
+.hero-text p{
+
+    margin-left:auto;
+
+    margin-right:auto;
 
 }
+
+
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+
+
+.hero-text h1{
+
+    font-size:45px;
+
+}
+
+
+
+.cards{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
 
 .cards{
 
@@ -306,21 +602,31 @@ nav ul{
 
 }
 
-}/* ===== ANIMACIONES ===== */
 
-.hero-text,
-.hero-img,
-.card{
 
-    opacity:0;
-    transform:translateY(40px);
-    transition:all .8s ease;
+.hero-text h1{
+
+    font-size:38px;
 
 }
 
-.visible{
 
-    opacity:1;
-    transform:translateY(0);
+
+.intro h2,
+.quote h2{
+
+    font-size:30px;
+
+}
+
+
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+
 
 }
