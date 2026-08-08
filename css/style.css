@@ -5832,6 +5832,1609 @@ nav.menu-open .mobile-menu-toggle span:nth-child(3) {
 }
 
 
+/* =========================================================
+   LUSTAFLOW
+   STYLE.CSS
+   Hoja de estilos global
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES
+   ========================================================= */
+
+:root {
+
+    --bg: #0d1117;
+    --bg-soft: #111821;
+
+    --primary: #00d9ff;
+    --primary-soft: rgba(0, 217, 255, .10);
+    --primary-glow: rgba(0, 217, 255, .28);
+
+    --white: #ffffff;
+
+    --text: #d7dfe8;
+    --text-soft: #aab5c1;
+    --text-muted: #7f8b98;
+
+    --border: rgba(255, 255, 255, .09);
+    --border-light: rgba(255, 255, 255, .06);
+    --border-hover: rgba(0, 217, 255, .45);
+
+    --card-bg: rgba(255, 255, 255, .045);
+
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 26px;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, .35);
+
+    --shadow-hover:
+        0 25px 70px rgba(0, 0, 0, .50);
+
+    --transition:
+        .35s cubic-bezier(.2, .8, .2, 1);
+
+    --max-width: 1200px;
+
+}
+
+
+/* =========================================================
+   2. RESET GENERAL
+   ========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+
+    color: var(--white);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(0, 217, 255, .10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 100%,
+            rgba(0, 90, 120, .16),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+}
+
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, .012) 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 4px;
+
+    opacity: .15;
+
+    z-index: -1;
+
+}
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+
+a {
+
+    color: inherit;
+
+}
+
+
+button,
+input,
+textarea {
+
+    font-family: inherit;
+
+}
+
+
+::selection {
+
+    background: var(--primary);
+
+    color: #001018;
+
+}
+
+
+/* =========================================================
+   3. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: var(--bg);
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: rgba(255, 255, 255, .18);
+
+    border-radius: 20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: var(--primary);
+
+}
+
+
+/* =========================================================
+   4. NAVBAR
+   ========================================================= */
+
+header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    padding: 18px 20px;
+
+    background: transparent;
+
+    transition:
+        background var(--transition),
+        padding var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+header.scrolled {
+
+    padding: 12px 20px;
+
+    background: rgba(13, 17, 23, .82);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, .30);
+
+}
+
+
+nav,
+.navbar {
+
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    min-height: 58px;
+
+    padding: 8px 10px 8px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    background: rgba(13, 17, 23, .55);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+}
+
+
+.nav-container {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+
+}
+
+
+.logo::before {
+
+    content: "";
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 14px var(--primary);
+
+}
+
+
+nav ul,
+.nav-links,
+.nav-menu {
+
+    list-style: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+}
+
+
+nav a {
+
+    position: relative;
+
+    display: block;
+
+    padding: 9px 13px;
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    border-radius: 10px;
+
+    transition:
+        color var(--transition),
+        background var(--transition);
+
+}
+
+
+nav a:hover {
+
+    color: var(--white);
+
+    background: rgba(255, 255, 255, .055);
+
+}
+
+
+nav a.active {
+
+    color: var(--white);
+
+    background: var(--primary-soft);
+
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 4px;
+
+    width: 0;
+
+    height: 2px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 8px rgba(0, 217, 255, .7);
+
+    transform: translateX(-50%);
+
+    transition:
+        width var(--transition);
+
+}
+
+
+nav a:hover::after,
+nav a.active::after {
+
+    width: 18px;
+
+}
+
+
+/* =========================================================
+   5. CONTENEDORES
+   ========================================================= */
+
+.container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: auto;
+
+}
+
+
+.section {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 100px auto;
+
+}
+
+
+.content-section {
+
+    width: 100%;
+
+    margin: 110px 0;
+
+}
+
+
+.content-section .container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   6. HERO PRINCIPAL
+   ========================================================= */
+
+.hero {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding: 150px 0 90px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(320px, .95fr);
+
+    align-items: center;
+
+    gap: 80px;
+
+}
+
+
+.hero-text {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.subtitle,
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+.subtitle::before,
+.eyebrow::before {
+
+    content: "";
+
+    width: 28px;
+
+    height: 1px;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 10px var(--primary);
+
+}
+
+
+.hero-text h1 {
+
+    max-width: 800px;
+
+    margin: 20px 0 25px;
+
+    font-size: clamp(
+        46px,
+        6vw,
+        78px
+    );
+
+    line-height: .98;
+
+    letter-spacing: -3px;
+
+}
+
+
+.hero-text h1 span {
+
+    color: var(--primary);
+
+}
+
+
+.hero-text p {
+
+    max-width: 650px;
+
+    margin-bottom: 35px;
+
+    color: var(--text-soft);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   7. HERO SECUNDARIO
+   ========================================================= */
+
+.page-hero {
+
+    width: min(
+        calc(100% - 40px),
+        1000px
+    );
+
+    min-height: 65vh;
+
+    margin: auto;
+
+    padding: 160px 0 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.page-hero .hero-text {
+
+    max-width: 850px;
+
+}
+
+
+.hero-small {
+
+    min-height: 55vh;
+
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+}
+
+
+.hero-content h1 {
+
+    margin-bottom: 20px;
+
+    font-size: clamp(
+        42px,
+        6vw,
+        68px
+    );
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+}
+
+
+.hero-content p {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: var(--text-soft);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   8. BOTONES
+   ========================================================= */
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+}
+
+
+.boton,
+.btn,
+.back-button .btn {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 14px 25px;
+
+    border: 1px solid transparent;
+
+    border-radius: 999px;
+
+    background: var(--primary);
+
+    color: #001018;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition),
+        border var(--transition);
+
+}
+
+
+.boton::before,
+.btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 25%,
+            rgba(255, 255, 255, .35),
+            transparent 75%
+        );
+
+    transform: translateX(-120%);
+
+    transition: transform .7s ease;
+
+}
+
+
+.boton:hover::before,
+.btn:hover::before {
+
+    transform: translateX(120%);
+
+}
+
+
+.boton:hover,
+.btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 217, 255, .25);
+
+}
+
+
+.boton.secundario,
+.btn-secondary {
+
+    background: transparent;
+
+    color: var(--white);
+
+    border-color: var(--border);
+
+}
+
+
+.boton.secundario:hover,
+.btn-secondary:hover {
+
+    color: var(--primary);
+
+    border-color: var(--border-hover);
+
+    background: var(--primary-soft);
+
+}
+
+
+/* =========================================================
+   9. HERO IMAGEN
+   ========================================================= */
+
+.hero-img {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.hero-img::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+
+    height: 70%;
+
+    background: var(--primary);
+
+    filter: blur(100px);
+
+    opacity: .10;
+
+    border-radius: 50%;
+
+    z-index: -1;
+
+}
+
+
+.hero-img img {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    border-radius: var(--radius-lg);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .55);
+
+    transition:
+        transform .6s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .6s ease;
+
+}
+
+
+.hero-img:hover img {
+
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, .65);
+
+}
+
+
+/* =========================================================
+   10. INTRO
+   ========================================================= */
+
+.intro {
+
+    width: min(
+        calc(100% - 40px),
+        900px
+    );
+
+    margin: 100px auto;
+
+    text-align: center;
+
+}
+
+
+.intro h2 {
+
+    margin-bottom: 20px;
+
+    font-size: clamp(
+        30px,
+        4vw,
+        44px
+    );
+
+    line-height: 1.1;
+
+}
+
+
+.intro p {
+
+    margin-bottom: 20px;
+
+    color: var(--text-soft);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   11. ENCABEZADOS DE SECCIÓN
+   ========================================================= */
+
+.section-heading {
+
+    max-width: 800px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.section-heading h2 {
+
+    margin: 12px 0 15px;
+
+    font-size: clamp(
+        30px,
+        4vw,
+        44px
+    );
+
+    line-height: 1.1;
+
+}
+
+
+.section-heading p {
+
+    color: var(--text-soft);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   12. TARJETAS
+   ========================================================= */
+
+.cards {
+
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 80px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.cards-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.card,
+.glass-card {
+
+    position: relative;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: var(--radius-lg);
+
+    padding: 35px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, .12);
+
+    transition:
+        transform var(--transition),
+        border var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+
+}
+
+
+.card:hover,
+.glass-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--border-hover);
+
+    box-shadow:
+        var(--shadow-hover);
+
+    background:
+        rgba(255, 255, 255, .055);
+
+}
+
+
+.card h2,
+.card h3,
+.glass-card h2,
+.glass-card h3 {
+
+    color: var(--white);
+
+}
+
+
+.card h2 {
+
+    margin-bottom: 20px;
+
+    font-size: 23px;
+
+}
+
+
+.card h3,
+.glass-card h3 {
+
+    margin: 15px 0;
+
+    font-size: 25px;
+
+}
+
+
+.card p,
+.glass-card p {
+
+    color: var(--text);
+
+    margin-bottom: 25px;
+
+    line-height: 1.8;
+
+}
+
+
+.card a,
+.glass-card a {
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   13. GLASS CARD
+   ========================================================= */
+
+.glass-card span {
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.glass-card .card-content {
+
+    position: relative;
+
+}
+
+
+/* =========================================================
+   14. NÚMEROS DE PROYECTOS
+   ========================================================= */
+
+.card-number {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 40px;
+
+    height: 40px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   15. TAGS
+   ========================================================= */
+
+.card-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 25px 0;
+
+}
+
+
+.card-tags span {
+
+    padding: 6px 11px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .035);
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+    letter-spacing: .5px;
+
+    text-transform: none;
+
+}
+
+
+/* =========================================================
+   16. PUBLICACIONES
+   Para estilo-de-vida.html
+   ========================================================= */
+
+.publicaciones {
+
+    width: min(
+        calc(100% - 40px),
+        1000px
+    );
+
+    margin: 80px auto;
+
+}
+
+
+.publicacion {
+
+    margin-bottom: 60px;
+
+    padding: 30px;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform var(--transition),
+        border var(--transition);
+
+}
+
+
+.publicacion:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--border-hover);
+
+}
+
+
+.publicacion-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.publicacion-header span {
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.publicacion-header h3 {
+
+    margin-top: 8px;
+
+    font-size: 26px;
+
+}
+
+
+.publicacion-header p {
+
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+}
+
+
+/* Imagen de publicación */
+
+.publicacion img {
+
+    width: 100%;
+
+    border-radius: var(--radius-md);
+
+    border: 1px solid var(--border);
+
+}
+
+
+/* Texto de publicación */
+
+.publicacion-text {
+
+    margin-top: 20px;
+
+    color: var(--text);
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   17. INSTAGRAM
+   ========================================================= */
+
+.instagram-post {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+.instagram-post iframe {
+
+    width: 100%;
+
+    max-width: 540px;
+
+    min-height: 500px;
+
+    border: 0;
+
+    border-radius: var(--radius-md);
+
+}
+
+
+/* =========================================================
+   18. YOUTUBE
+   ========================================================= */
+
+.youtube-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-md);
+
+    border: 1px solid var(--border);
+
+    background: #000;
+
+}
+
+
+.youtube-wrapper iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+}
+
+
+/* =========================================================
+   19. GALERÍA
+   ========================================================= */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.gallery-item {
+
+    overflow: hidden;
+
+    border-radius: var(--radius-md);
+
+    border: 1px solid var(--border);
+
+    background: var(--bg-soft);
+
+}
+
+
+.gallery-item img {
+
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    transition:
+        transform .6s ease;
+
+}
+
+
+.gallery-item:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+/* =========================================================
+   20. SOBRE MÍ
+   ========================================================= */
+
+.biografia {
+
+    max-width: 950px;
+
+    margin: 80px auto;
+
+    padding: 20px;
+
+}
+
+
+.biografia article {
+
+    margin-bottom: 90px;
+
+    padding: 45px;
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform var(--transition),
+        border var(--transition);
+
+}
+
+
+.biografia article:hover {
+
+    border-color: rgba(0, 217, 255, .5);
+
+    transform: translateY(-5px);
+
+}
+
+
+.biografia h2 {
+
+    margin-bottom: 25px;
+
+    color: var(--white);
+
+    font-size: 32px;
+
+}
+
+
+.biografia p {
+
+    margin-bottom: 20px;
+
+    color: var(--text);
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+}
+
+
+.biografia article::after {
+
+    content: "";
+
+    display: block;
+
+    width: 60px;
+
+    height: 3px;
+
+    margin-top: 35px;
+
+    background: var(--primary);
+
+}
+
+
+/* Primera letra */
+
+.biografia article:first-child p:first-of-type::first-letter {
+
+    float: left;
+
+    padding-right: 10px;
+
+    color: var(--primary);
+
+    font-size: 55px;
+
+    font-weight: 700;
+
+    line-height: .9;
+
+}
+
+
+/* =========================================================
+   21. CONTACTO
+   ========================================================= */
+
+.contact-container {
+
+    max-width: 1100px;
+
+    margin: 80px auto;
+
+    padding: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 35px;
+
+}
+
+
+.contact-card {
+
+    padding: 45px;
+
+    background: rgba(255, 255, 255, .05);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform var(--transition),
+        border var(--transition);
+
+}
+
+
+.contact-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--primary);
+
+}
+
+
+.contact-card h2 {
+
+    margin-bottom: 20px;
+
+    font-size: 32px;
+
+}
+
+
+.contact-card p {
+
+    margin-bottom: 20px;
+
+    color: var(--text);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+.contact-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
 .contact-links a {
 
     display: flex;
@@ -5840,30 +7443,31 @@ nav.menu-open .mobile-menu-toggle span:nth-child(3) {
 
     gap: 12px;
 
-    padding: 14px 17px;
+    padding: 15px 20px;
 
-    border: 1px solid var(--border-soft);
+    border-radius: 15px;
 
-    border-radius: 14px;
+    background: rgba(255, 255, 255, .05);
 
-    background: rgba(255,255,255,.035);
+    border: 1px solid var(--border);
 
-    color: var(--text);
+    color: var(--white);
 
     text-decoration: none;
 
     transition:
         transform var(--transition),
-        background var(--transition),
-        border-color var(--transition),
-        color var(--transition);
+        color var(--transition),
+        border var(--transition),
+        background var(--transition);
 
 }
 
 
 .contact-links a:hover {
 
-    transform: translateX(6px);
+    backgroun
+6px);
 
     color: var(--primary);
 
