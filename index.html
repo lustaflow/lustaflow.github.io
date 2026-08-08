@@ -749,60 +749,352 @@ Explorar
 Reflexiones, artículos e ideas sobre crecimiento personal, filosofía y experiencias.
 
 </p>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Lustaflow | Jordi Lostaló</title>
+
+    <meta
+        name="description"
+        content="Lustaflow. Cocina, creatividad, estilo de vida, escritos y proyectos de Jordi Lostaló."
+    >
+
+    <meta
+        name="theme-color"
+        content="#0d1117"
+    >
+
+    <meta
+        name="author"
+        content="Jordi Lostaló"
+    >
+
+    <!-- ==================================================
+         GOOGLE FONTS
+    =================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
 
-<a href="escritos.html">
+    <!-- ==================================================
+         CSS
+    =================================================== -->
 
-Explorar
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
-</a>
-
-
-</div>
-
-
-
-
+</head>
 
 
-<div class="card">
+<body>
 
 
-<h2>
-🚀 Proyectos
-</h2>
+<!-- =====================================================
+     HEADER / NAVBAR
+===================================================== -->
+
+<header class="site-header">
+
+    <nav
+        class="navbar"
+        aria-label="Navegación principal"
+    >
 
 
-<p>
+        <!-- LOGO -->
 
-Ideas, desarrollos y proyectos donde transformar conceptos en algo real.
-
-</p>
-
-
-<a href="proyectos.html">
-
-Explorar
-
-</a>
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Lustaflow - Inicio"
+        >
+            LUSTAFLOW
+        </a>
 
 
-</div>
+        <!-- BOTÓN MENÚ MÓVIL -->
+
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="main-menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <!-- MENÚ -->
+
+        <ul
+            id="main-menu"
+            class="nav-menu"
+        >
+
+            <li>
+                <a
+                    href="index.html"
+                    class="active"
+                    aria-current="page"
+                >
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="sobre-mi.html">
+                    Sobre mí
+                </a>
+            </li>
+
+            <li>
+                <a href="cocina.html">
+                    Cocina
+                </a>
+            </li>
+
+            <li>
+                <a href="estilo-de-vida.html">
+                    Estilo de vida
+                </a>
+            </li>
+
+            <li>
+                <a href="escritos.html">
+                    Escritos
+                </a>
+            </li>
+
+            <li>
+                <a href="proyectos.html">
+                    Proyectos
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
 
 
 
-</section>
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+===================================================== -->
+
+<main>
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+
+        <!-- TEXTO HERO -->
+
+        <div class="hero-text reveal">
+
+
+            <span class="subtitle">
+                LUSTAFLOW
+            </span>
+
+
+            <h1>
+
+                Construyendo.<br>
+                Aprendiendo.<br>
+
+                <span>
+                    Evolucionando.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Cocinero, creador y apasionado por el aprendizaje
+                continuo. Un espacio donde comparto mi trayectoria,
+                mis ideas, mis proyectos y todo aquello que forma
+                parte de mi evolución personal.
+
+            </p>
+
+
+            <!-- BOTONES -->
+
+            <div class="hero-buttons">
+
+
+                <a
+                    href="sobre-mi.html"
+                    class="boton"
+                >
+                    Conóceme
+                </a>
+
+
+                <a
+                    href="contacto.html"
+                    class="boton secundario"
+                >
+                    Contacto
+                </a>
+
+
+            </div>
+
+
+        </div>
 
 
 
+        <!-- IMAGEN HERO -->
+
+        <div class="hero-img reveal">
+
+            <img
+                src="img/IMG_20250426_150523023.jpg"
+                alt="Plato de cocina elaborado por Jordi Lostaló"
+                loading="eager"
+            >
+
+        </div>
+
+
+    </section>
 
 
 
-<!-- FRASE FINAL -->
+    <!-- =================================================
+         INTRODUCCIÓN
+    ================================================== -->
+
+    <section class="intro reveal">
 
 
-<section class="quote">
+        <span class="section-label">
+            LUSTAFLOW
+        </span>
 
 
-<h2>
+        <h2>
+            Más allá de una profesión.
+        </h2>
 
+
+        <p>
+
+            La cocina es mi oficio, pero la curiosidad es mi motor.
+            Lustaflow nace como un espacio donde unir gastronomía,
+            creatividad, pensamiento y nuevos retos.
+
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         ÁREAS PRINCIPALES
+    ================================================== -->
+
+    <section
+        class="cards"
+        aria-label="Áreas principales de Lustaflow"
+    >
+
+
+        <!-- =========================
+             COCINA
+        ========================== -->
+
+        <article class="card reveal">
+
+            <div class="card-number">
+                01
+            </div>
+
+
+            <span
+                class="card-icon"
+                aria-hidden="true"
+            >
+                👨‍🍳
+            </span>
+
+
+            <h2>
+                Cocina
+            </h2>
+
+
+            <p>
+
+                Experiencia gastronómica, técnicas, procesos
+                y una visión personal de la cocina después
+                de años entre fogones.
+
+            </p>
+
+
+            <a
+                href="cocina.html"
+                class="card-link"
+            >
+
+                Explorar
+
+                <span aria-hidden="true">
+                    →
+                </span>
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             ESTILO DE VIDA
+        ========================== -->
+
+        <article class="card
