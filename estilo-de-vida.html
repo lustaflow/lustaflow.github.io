@@ -10,29 +10,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Estilo de vida | LUSTAFLOW</title>
-
     <meta
         name="description"
-        content="Estilo de vida de Jordi Lostaló: deporte, skate, gastronomía, cultura, viajes, fotografía y experiencias."
+        content="Estilo de vida — skate, Mediterráneo, fotografía, viajes y desarrollo personal."
     >
 
-    <meta
-        name="author"
-        content="Jordi Lostaló"
+    <title>Estilo de vida — LUSTAFLOW</title>
+
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
     >
-
-    <meta
-        name="theme-color"
-        content="#0d1117"
-    >
-
-
-    <!-- =================================================
-         GOOGLE FONTS
-    ================================================== -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
         rel="preconnect"
@@ -41,14 +32,12 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
 
-    <!-- =================================================
-         CSS
-    ================================================== -->
+    <!-- CSS -->
 
     <link
         rel="stylesheet"
@@ -61,681 +50,991 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER / NAVBAR
-===================================================== -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-<header>
+    <header class="site-header">
 
-    <nav aria-label="Navegación principal">
+        <div class="container">
 
-
-        <!-- LOGO -->
-
-        <a
-            href="index.html"
-            class="logo"
-            aria-label="Lustaflow - Inicio"
-        >
-            LUSTAFLOW
-        </a>
+            <nav class="navbar">
 
 
-        <!-- MENÚ MÓVIL -->
+                <!-- LOGO -->
 
-        <button
-            class="nav-toggle"
-            type="button"
-            aria-label="Abrir menú"
-            aria-expanded="false"
-            aria-controls="main-menu"
-        >
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <!-- NAVEGACIÓN -->
-
-        <ul id="main-menu">
-
-            <li>
-                <a href="index.html">
-                    Inicio
-                </a>
-            </li>
-
-            <li>
-                <a href="sobre-mi.html">
-                    Sobre mí
-                </a>
-            </li>
-
-            <li>
-                <a href="cocina.html">
-                    Cocina
-                </a>
-            </li>
-
-            <li>
                 <a
-                    href="estilo-de-vida.html"
-                    class="active"
-                    aria-current="page"
+                    href="index.html"
+                    class="logo"
+                    aria-label="LUSTAFLOW — Inicio"
                 >
-                    Estilo de vida
+
+                    <span class="logo-dot"></span>
+
+                    LUSTAFLOW
+
                 </a>
-            </li>
-
-            <li>
-                <a href="escritos.html">
-                    Escritos
-                </a>
-            </li>
-
-            <li>
-                <a href="proyectos.html">
-                    Proyectos
-                </a>
-            </li>
-
-            <li>
-                <a href="contacto.html">
-                    Contacto
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
 
 
+                <!-- NAVIGATION -->
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
+                <div class="nav-links">
 
-<main>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+
+                    <a href="sobre-mi.html">
+                        Sobre mí
+                    </a>
+
+                    <a href="cocina.html">
+                        Cocina
+                    </a>
+
+                    <a
+                        href="estilo-de-vida.html"
+                        class="active"
+                    >
+                        Estilo de vida
+                    </a>
+
+                    <a href="escritos.html">
+                        Escritos
+                    </a>
+
+                    <a href="proyectos.html">
+                        Proyectos
+                    </a>
+
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+
+                </div>
 
 
-    <!-- =================================================
-         HERO
-    ================================================== -->
+                <!-- MOBILE MENU -->
 
-    <section class="page-hero">
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                >
 
+                    <span></span>
+                    <span></span>
 
-        <div class="hero-content reveal">
+                </button>
 
-
-            <span class="subtitle">
-                ESTILO DE VIDA
-            </span>
-
-
-            <h1>
-                Lo que ocurre
-                fuera del trabajo.
-            </h1>
-
-
-            <p>
-
-                Un espacio para compartir experiencias,
-                deporte, gastronomía, cultura, viajes,
-                fotografía y pequeños momentos que forman
-                parte de mi día a día.
-
-            </p>
-
+            </nav>
 
         </div>
 
-
-    </section>
-
+    </header>
 
 
-    <!-- =================================================
-         INTRODUCCIÓN
-    ================================================== -->
 
-    <section class="section">
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+
+                    <div class="hero-text">
+
+                        <p class="eyebrow">
+                            Estilo de vida
+                        </p>
+
+
+                        <h1>
+                            Moverse.<br>
+                            Observar.<br>
+                            Vivir.
+                        </h1>
+
+
+                        <p class="hero-description">
+
+                            Las cosas que ocurren fuera del
+                            trabajo también forman parte de
+                            quién soy.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="hero-note">
+
+                        <span class="hero-note-line"></span>
+
+                        <p>
+
+                            Una colección abierta de lugares,
+                            aficiones, experiencias y formas
+                            de entender el día a día.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             01 — SKATE
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            01 — Skate
+                        </p>
+
+                        <h2>
+                            Una forma diferente
+                            de mirar la calle.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            El skate forma parte de una etapa
+                            importante de mi vida y sigue siendo
+                            una manera de mantener el movimiento,
+                            la curiosidad y el contacto con la calle.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="prose">
+
+
+                    <p>
+
+                        Para mí, el skate siempre ha sido algo
+                        más que subirse a una tabla.
+
+                    </p>
+
+
+                    <p>
+
+                        Existe una manera diferente de recorrer
+                        una ciudad cuando la miras desde una
+                        tabla. Las calles dejan de ser únicamente
+                        lugares de paso y se convierten en espacios
+                        para descubrir, improvisar y aprender.
+
+                    </p>
+
+
+                    <p>
+
+                        Con el tiempo también ha cambiado mi
+                        relación con él.
+
+                        Ya no se trata de hacer lo mismo que
+                        cuando tenía veinte años, sino de seguir
+                        disfrutando del movimiento y de todo lo
+                        que representa.
+
+                    </p>
+
+
+                    <p>
+
+                        De ahí nace también la idea de
+                        <strong>reskate +35</strong>: continuar
+                        patinando, compartir experiencias y
+                        demostrar que no existe una edad concreta
+                        para volver a empezar.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CITA
+        ================================================== -->
+
+        <section class="section section-philosophy">
+
+            <div class="container">
+
+                <div class="quote">
+
+                    <p>
+
+                        “Seguir moviéndose también es
+                        una forma de seguir siendo joven.”
+
+                    </p>
+
+                    <span>
+                        LUSTAFLOW
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             02 — MEDITERRÁNEO
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            02 — Mediterráneo
+                        </p>
+
+                        <h2>
+                            Un lugar que también
+                            es una forma de vivir.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            El Mediterráneo está presente
+                            en muchas partes de mi vida:
+                            la comida, el mar, la calle,
+                            las conversaciones y el ritmo.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cards">
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Mar
+                            </h3>
+
+                            <p>
+                                Un espacio de calma,
+                                libertad y conexión.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Gastronomía
+                            </h3>
+
+                            <p>
+                                Producto, tradición,
+                                conversación y tiempo.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Calle
+                            </h3>
+
+                            <p>
+                                El espacio donde ocurren
+                                muchas de las mejores historias.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            04
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Comunidad
+                            </h3>
+
+                            <p>
+                                Personas, lugares y vínculos
+                                que construyen identidad.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             03 — FOTOGRAFÍA
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            03 — Fotografía
+                        </p>
+
+                        <h2>
+                            Guardar aquello
+                            que merece ser recordado.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            La fotografía como una forma
+                            de observar y conservar momentos,
+                            lugares y detalles cotidianos.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="prose">
+
+
+                    <p>
+
+                        No busco necesariamente hacer
+                        fotografía perfecta.
+
+                    </p>
+
+
+                    <p>
+
+                        Me interesa más la fotografía como
+                        documento personal: una manera de
+                        recordar cómo era un lugar, qué estaba
+                        pasando o qué sensación producía
+                        determinado momento.
+
+                    </p>
+
+
+                    <p>
+
+                        Con el tiempo esta sección irá
+                        incorporando imágenes de viajes,
+                        cocina, skate, Mediterráneo y vida
+                        cotidiana.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             04 — VIAJES
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            04 — Viajes
+                        </p>
+
+                        <h2>
+                            Salir para volver
+                            con otra perspectiva.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            Viajar no consiste únicamente
+                            en visitar lugares. También
+                            significa cambiar temporalmente
+                            de contexto.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cards">
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Lugares
+                            </h3>
+
+                            <p>
+                                Ciudades, pueblos, costas
+                                y rincones que dejan huella.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Personas
+                            </h3>
+
+                            <p>
+                                La gente que conocemos también
+                                forma parte del viaje.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Gastronomía
+                            </h3>
+
+                            <p>
+                                Comer es una de las mejores
+                                formas de conocer un lugar.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            04
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Perspectiva
+                            </h3>
+
+                            <p>
+                                Volver a casa viendo algunas
+                                cosas de otra manera.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             05 — DESARROLLO PERSONAL
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            05 — Desarrollo personal
+                        </p>
+
+                        <h2>
+                            Seguir construyéndose
+                            también es parte del camino.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            Aprender, cambiar hábitos,
+                            desarrollar nuevas habilidades
+                            y cuestionar las propias ideas.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cards">
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Aprender
+                            </h3>
+
+                            <p>
+                                Mantener la curiosidad
+                                y adquirir nuevas habilidades.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Movimiento
+                            </h3>
+
+                            <p>
+                                Cuidar el cuerpo y mantener
+                                una vida activa.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Reflexión
+                            </h3>
+
+                            <p>
+                                Pararse, observar y entender
+                                lo que ocurre alrededor.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            04
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Evolución
+                            </h3>
+
+                            <p>
+                                No quedarse quieto por miedo
+                                a cambiar.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             06 — GALERÍA
+        ================================================== -->
+
+        <section class="section section-closing">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            06 — Galería
+                        </p>
+
+                        <h2>
+                            Momentos que
+                            hablan por sí solos.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            Una colección visual que irá
+                            creciendo con fotografías de
+                            skate, viajes, Mediterráneo
+                            y vida cotidiana.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!--
+
+                    Las fotografías reales se añadirán
+                    posteriormente desde:
+
+                    img/lifestyle/
+                    img/skate/
+
+                -->
+
+
+                <div class="gallery">
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="img/lifestyle/lifestyle-01.jpg"
+                            alt="Momento de estilo de vida"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="img/skate/skate-01.jpg"
+                            alt="Skate"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="img/lifestyle/lifestyle-02.jpg"
+                            alt="Paisaje mediterráneo"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
 
         <div class="container">
 
 
-            <div class="section-heading reveal">
+            <div class="footer-content">
 
 
-                <span class="section-label">
-                    UNA MIRADA PERSONAL
-                </span>
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        class="logo"
+                    >
+
+                        <span class="logo-dot"></span>
+
+                        LUSTAFLOW
+
+                    </a>
 
 
-                <h2>
-                    Vivir también forma parte del camino.
-                </h2>
+                    <p>
+
+                        Una mirada personal sobre
+                        lo que hago y lo que me interesa.
+
+                    </p>
+
+                </div>
 
 
-                <p>
+                <div class="footer-navigation">
 
-                    No todo lo que hago tiene que convertirse
-                    en un proyecto o en un artículo.
+                    <a href="index.html">
+                        Inicio
+                    </a>
 
-                    Algunas cosas simplemente merecen ser
-                    compartidas.
+                    <a href="sobre-mi.html">
+                        Sobre mí
+                    </a>
 
-                </p>
+                    <a href="cocina.html">
+                        Cocina
+                    </a>
 
+                    <a href="escritos.html">
+                        Escritos
+                    </a>
 
-                <p>
+                    <a href="proyectos.html">
+                        Proyectos
+                    </a>
 
-                    Una sesión de skate, un restaurante,
-                    una fotografía, un viaje, una exposición,
-                    un vídeo o simplemente un momento cualquiera.
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
 
-                    Este espacio es para eso.
-
-                </p>
-
+                </div>
 
             </div>
 
+
+            <div class="footer-bottom">
+
+                <span>
+
+                    ©
+                    <span id="current-year"></span>
+                    LUSTAFLOW
+
+                </span>
+
+
+                <span>
+                    Hecho con intención.
+                </span>
+
+            </div>
 
         </div>
 
+    </footer>
 
-    </section>
 
 
+    <!-- JAVASCRIPT -->
 
-    <!-- =================================================
-         PUBLICACIONES
-    ================================================== -->
-
-    <section class="section lifestyle-feed">
-
-
-        <div class="container">
-
-
-            <div class="section-heading reveal">
-
-
-                <span class="section-label">
-                    DIARIO VISUAL
-                </span>
-
-
-                <h2>
-                    Experiencias y momentos.
-                </h2>
-
-
-                <p>
-
-                    Publicaciones, fotografías y vídeos
-                    que forman parte del camino.
-
-                </p>
-
-
-            </div>
-
-
-
-            <!-- =================================================
-                 PUBLICACIÓN INSTAGRAM 01
-                 
-                 PARA CREAR OTRA:
-                 1. COPIA TODO ESTE ARTICLE.
-                 2. PÉGALO ENCIMA O DEBAJO DE OTRA PUBLICACIÓN.
-                 3. CAMBIA ÚNICAMENTE LOS CAMPOS MARCADOS
-                    COMO "EDITAR AQUÍ".
-            ================================================== -->
-
-            <article class="life-post glass-card reveal">
-
-
-                <!-- EDITAR AQUÍ:
-                     FECHA Y CATEGORÍA -->
-
-                <span class="life-post-meta">
-                    EDITAR AQUÍ · INSTAGRAM
-                </span>
-
-
-                <!-- EDITAR AQUÍ:
-                     TÍTULO DE LA PUBLICACIÓN -->
-
-                <h3>
-                    EDITAR AQUÍ · Título de la publicación
-                </h3>
-
-
-                <!-- EDITAR AQUÍ:
-                     TEXTO PERSONAL QUE QUIERAS AÑADIR.
-                     PUEDES DEJARLO VACÍO SI SOLO QUIERES
-                     MOSTRAR EL ENLACE. -->
-
-                <p>
-
-                    EDITAR AQUÍ · Escribe aquí una pequeña
-                    descripción, contexto o reflexión sobre
-                    esta publicación.
-
-                </p>
-
-
-                <!-- ENLACE DE INSTAGRAM -->
-
-                <a
-                    href="https://www.instagram.com/p/B751JMiIiZ0/?igsh=ODk4eG53bW43enUy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-
-                    Ver publicación en Instagram →
-
-                </a>
-
-
-            </article>
-
-
-
-            <!-- =================================================
-                 PUBLICACIÓN INSTAGRAM 02
-            ================================================== -->
-
-            <article class="life-post glass-card reveal">
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <span class="life-post-meta">
-                    EDITAR AQUÍ · INSTAGRAM
-                </span>
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <h3>
-                    EDITAR AQUÍ · Título de la publicación
-                </h3>
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <p>
-
-                    EDITAR AQUÍ · Escribe aquí una pequeña
-                    descripción o contexto.
-
-                </p>
-
-
-                <a
-                    href="https://www.instagram.com/p/CJYqiIFFJ4N/?igsh=MWgyczRxcXEweGM4dg=="
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-
-                    Ver publicación en Instagram →
-
-                </a>
-
-
-            </article>
-
-
-
-            <!-- =================================================
-                 PUBLICACIÓN YOUTUBE 01
-                 
-                 ESTE BLOQUE ES DIFERENTE.
-                 CUANDO QUIERAS AÑADIR OTRO VÍDEO,
-                 COPIA TODO ESTE ARTICLE.
-            ================================================== -->
-
-            <article class="life-post life-video glass-card reveal">
-
-
-                <!-- EDITAR AQUÍ:
-                     FECHA Y CATEGORÍA -->
-
-                <span class="life-post-meta">
-                    EDITAR AQUÍ · YOUTUBE
-                </span>
-
-
-                <!-- EDITAR AQUÍ:
-                     TÍTULO DEL VÍDEO -->
-
-                <h3>
-                    EDITAR AQUÍ · Título del vídeo
-                </h3>
-
-
-                <!-- EDITAR AQUÍ:
-                     DESCRIPCIÓN -->
-
-                <p>
-
-                    EDITAR AQUÍ · Escribe aquí una breve
-                    descripción del vídeo.
-
-                </p>
-
-
-                <!-- ENLACE DEL VÍDEO -->
-
-                <a
-                    href="https://youtu.be/CXJEzIFN-_4?is=l9iwQHbpbN45DMpj"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-
-                    Ver vídeo en YouTube →
-
-                </a>
-
-
-            </article>
-
-
-
-            <!-- =================================================
-                 PUBLICACIÓN INSTAGRAM 03
-            ================================================== -->
-
-            <article class="life-post glass-card reveal">
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <span class="life-post-meta">
-                    EDITAR AQUÍ · INSTAGRAM
-                </span>
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <h3>
-                    EDITAR AQUÍ · Título de la publicación
-                </h3>
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <p>
-
-                    EDITAR AQUÍ · Escribe aquí una pequeña
-                    descripción o contexto.
-
-                </p>
-
-
-                <a
-                    href="https://www.instagram.com/p/BwHr4S4FFlw/?igsh=bmw1eXNqdXNrd2pu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-
-                    Ver publicación en Instagram →
-
-                </a>
-
-
-            </article>
-
-
-
-            <!-- =================================================
-                 PUBLICACIÓN INSTAGRAM 04
-            ================================================== -->
-
-            <article class="life-post glass-card reveal">
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <span class="life-post-meta">
-                    EDITAR AQUÍ · INSTAGRAM
-                </span>
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <h3>
-                    EDITAR AQUÍ · Título de la publicación
-                </h3>
-
-
-                <!-- EDITAR AQUÍ -->
-
-                <p>
-
-                    EDITAR AQUÍ · Escribe aquí una pequeña
-                    descripción o contexto.
-
-                </p>
-
-
-                <a
-                    href="https://www.instagram.com/p/DMhuaiitNz7/?igsh=bWhjdHAyeHdpdjZn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-
-                    Ver publicación en Instagram →
-
-                </a>
-
-
-            </article>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         CATEGORÍAS
-         
-         NO SON PUBLICACIONES.
-         
-         Sirven simplemente para explicar qué tipo de
-         contenido puede aparecer en esta sección.
-    ================================================== -->
-
-    <section class="section lifestyle-categories">
-
-
-        <div class="container">
-
-
-            <div class="section-heading reveal">
-
-
-                <span class="section-label">
-                    EL ESPACIO
-                </span>
-
-
-                <h2>
-                    Diferentes formas de vivir.
-                </h2>
-
-
-            </div>
-
-
-
-            <div class="cards">
-
-
-                <article class="card reveal">
-
-                    <h3>
-                        🛹 Deporte
-                    </h3>
-
-                    <p>
-
-                        Skate, actividad física, movimiento
-                        y cualquier experiencia relacionada
-                        con mantenerme activo.
-
-                    </p>
-
-                </article>
-
-
-
-                <article class="card reveal">
-
-                    <h3>
-                        🍽️ Gastronomía
-                    </h3>
-
-                    <p>
-
-                        Restaurantes, cafés, productos,
-                        descubrimientos y lugares que
-                        merecen ser compartidos.
-
-                    </p>
-
-                </article>
-
-
-
-                <article class="card reveal">
-
-                    <h3>
-                        🎨 Cultura
-                    </h3>
-
-                    <p>
-
-                        Arte, exposiciones, espacios culturales,
-                        eventos y experiencias que despierten
-                        curiosidad.
-
-                    </p>
-
-                </article>
-
-
-
-                <article class="card reveal">
-
-                    <h3>
-                        📷 Momentos
-                    </h3>
-
-                    <p>
-
-                        Fotografías, viajes, lugares,
-                        pequeños descubrimientos y momentos
-                        cotidianos.
-
-                    </p>
-
-                </article>
-
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         CIERRE
-    ================================================== -->
-
-    <section class="quote reveal">
-
-
-        <span class="section-label">
-            LUSTAFLOW
-        </span>
-
-
-        <h2>
-            No todo tiene que convertirse
-            en un proyecto.
-        </h2>
-
-
-        <p>
-
-            Algunas cosas simplemente forman parte
-            del camino.
-
-        </p>
-
-
-    </section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-
-    <div class="footer-content">
-
-
-        <h3>
-            LUSTAFLOW
-        </h3>
-
-
-        <p>
-            © 2026 Jordi Lostaló. Todos los derechos reservados.
-        </p>
-
-
-    </div>
-
-
-</footer>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script src="js/main.js"></script>
-
+    <script src="js/main.js"></script>
 
 </body>
 
