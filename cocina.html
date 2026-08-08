@@ -5,33 +5,44 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Cocina | LUSTAFLOW</title>
+    <meta
+        name="description"
+        content="Cocina — experiencia, técnica, producto y gastronomía desde la mirada de LUSTAFLOW."
+    >
 
-    <meta name="description"
-        content="Cocina, recetas, técnicas, productos, herramientas, maquinaria, consejos y curiosidades gastronómicas de LUSTAFLOW.">
+    <title>Cocina — LUSTAFLOW</title>
 
-    <meta name="author" content="Jordi Lostaló">
 
-    <!-- =========================
-         GOOGLE FONTS
-    ========================== -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
 
-    <!-- =========================
-         CSS
-    ========================== -->
+    <!-- CSS -->
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
 </head>
 
@@ -39,531 +50,1023 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER / NAVBAR
-====================================================== -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-<header>
-
-    <nav>
-
-        <a href="index.html" class="logo">
-            LUSTAFLOW
-        </a>
-
-
-        <ul>
-
-            <li>
-                <a href="index.html">
-                    Inicio
-                </a>
-            </li>
-
-            <li>
-                <a href="sobre-mi.html">
-                    Sobre mí
-                </a>
-            </li>
-
-            <li>
-                <a href="cocina.html" class="active">
-                    Cocina
-                </a>
-            </li>
-
-            <li>
-                <a href="estilo-de-vida.html">
-                    Estilo de vida
-                </a>
-            </li>
-
-            <li>
-                <a href="escritos.html">
-                    Escritos
-                </a>
-            </li>
-
-            <li>
-                <a href="proyectos.html">
-                    Proyectos
-                </a>
-            </li>
-
-            <li>
-                <a href="contacto.html">
-                    Contacto
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-
-<!-- =====================================================
-     CONTENIDO PRINCIPAL
-====================================================== -->
-
-<main>
-
-
-    <!-- =================================================
-         HERO
-    ================================================== -->
-
-    <section class="hero hero-small">
-
-        <div class="hero-content">
-
-            <span class="subtitle">
-                COCINA
-            </span>
-
-            <h1>
-                Mucho más que recetas.
-            </h1>
-
-            <p>
-
-                Un espacio para compartir conocimientos,
-                técnicas, productos, herramientas, experiencias
-                y curiosidades surgidas de años entre fogones.
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         INTRODUCCIÓN
-    ================================================== -->
-
-    <section class="section">
+    <header class="site-header">
 
         <div class="container">
 
-            <div class="glass-card">
+            <nav class="navbar">
 
-                <span>
-                    CONOCIMIENTO GASTRONÓMICO
-                </span>
 
-                <h2>
-                    Aprender también forma parte de cocinar.
-                </h2>
+                <!-- LOGO -->
 
-                <p>
+                <a
+                    href="index.html"
+                    class="logo"
+                    aria-label="LUSTAFLOW — Inicio"
+                >
 
-                    La cocina no consiste únicamente en seguir
-                    recetas. Detrás de cada plato existen técnicas,
-                    productos, herramientas, temperaturas, procesos
-                    y decisiones que pueden cambiar completamente
-                    el resultado.
+                    <span class="logo-dot"></span>
 
-                </p>
+                    LUSTAFLOW
 
-                <p>
+                </a>
 
-                    Este espacio nace para reunir todo aquello que
-                    considero interesante compartir: desde una receta
-                    concreta hasta una explicación sobre un alimento,
-                    una técnica de cocina, una herramienta profesional
-                    o una curiosidad gastronómica.
 
-                </p>
+                <!-- NAVIGATION -->
+
+                <div class="nav-links">
+
+                    <a href="index.html">
+                        Inicio
+                    </a>
+
+                    <a href="sobre-mi.html">
+                        Sobre mí
+                    </a>
+
+                    <a
+                        href="cocina.html"
+                        class="active"
+                    >
+                        Cocina
+                    </a>
+
+                    <a href="estilo-de-vida.html">
+                        Estilo de vida
+                    </a>
+
+                    <a href="escritos.html">
+                        Escritos
+                    </a>
+
+                    <a href="proyectos.html">
+                        Proyectos
+                    </a>
+
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+
+                </div>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+
+                    <div class="hero-text">
+
+                        <p class="eyebrow">
+                            Cocina
+                        </p>
+
+
+                        <h1>
+                            Oficio.<br>
+                            Producto.<br>
+                            Memoria.
+                        </h1>
+
+
+                        <p class="hero-description">
+
+                            La cocina como profesión, lenguaje,
+                            aprendizaje y una de las formas más
+                            directas de relacionarnos con el mundo.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="hero-note">
+
+                        <span class="hero-note-line"></span>
+
+                        <p>
+
+                            Esta página no es un recetario.
+                            Es un espacio vivo que irá creciendo
+                            con experiencias, técnicas, platos
+                            y gastronomía.
+
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
 
-    <!-- =================================================
-         CATEGORÍAS
-    ================================================== -->
+        <!-- =================================================
+             01 — FILOSOFÍA
+        ================================================== -->
 
-    <section class="section">
+        <section class="section">
 
-        <div class="container">
-
-
-            <h2 class="section-title">
-                Explorar cocina
-            </h2>
+            <div class="container">
 
 
-            <div class="cards">
+                <div class="section-header">
 
 
-                <!-- ================================
-                     CATEGORÍA 01
-                ================================= -->
+                    <div>
 
-                <article class="glass-card">
+                        <p class="section-label">
+                            01 — Filosofía
+                        </p>
 
-                    <span>
-                        01
-                    </span>
+                        <h2>
+                            Cocinar es mucho más
+                            que seguir una receta.
+                        </h2>
 
-                    <h3>
-                        Recetas
-                    </h3>
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            La cocina combina producto,
+                            técnica, tiempo, intuición,
+                            memoria y experiencia.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="prose">
+
 
                     <p>
 
-                        Recetas explicadas paso a paso,
-                        técnicas utilizadas, ingredientes,
-                        procesos y observaciones personales.
+                        Mi relación con la cocina nace de la
+                        práctica y de muchos años trabajando
+                        entre fogones.
 
                     </p>
 
-                </article>
-
-
-
-                <!-- ================================
-                     CATEGORÍA 02
-                ================================= -->
-
-                <article class="glass-card">
-
-                    <span>
-                        02
-                    </span>
-
-                    <h3>
-                        Técnicas
-                    </h3>
 
                     <p>
 
-                        Métodos de cocción, cortes, elaboraciones,
-                        conservación y diferentes técnicas
-                        utilizadas en cocina.
+                        La cocina mediterránea, la tradición
+                        española y catalana y el respeto por
+                        el producto forman una parte importante
+                        de mi manera de cocinar.
 
                     </p>
 
-                </article>
-
-
-
-                <!-- ================================
-                     CATEGORÍA 03
-                ================================= -->
-
-                <article class="glass-card">
-
-                    <span>
-                        03
-                    </span>
-
-                    <h3>
-                        Producto
-                    </h3>
 
                     <p>
 
-                        Alimentos, ingredientes, temporadas,
-                        características, curiosidades y formas
-                        de utilizarlos.
+                        Pero cocinar también significa observar,
+                        probar, equivocarse, repetir y entender
+                        por qué las cosas funcionan.
 
                     </p>
 
-                </article>
-
-
-
-                <!-- ================================
-                     CATEGORÍA 04
-                ================================= -->
-
-                <article class="glass-card">
-
-                    <span>
-                        04
-                    </span>
-
-                    <h3>
-                        Herramientas
-                    </h3>
 
                     <p>
 
-                        Cuchillos, utensilios, maquinaria y
-                        herramientas que forman parte del trabajo
-                        diario en una cocina.
+                        Por eso esta sección no pretende ser
+                        un recetario cerrado.
+
+                        Quiero que sea un espacio donde poder
+                        reunir conocimientos, platos, técnicas,
+                        restaurantes, experiencias y fotografías
+                        a medida que vayan apareciendo.
 
                     </p>
 
-                </article>
-
-
-
-                <!-- ================================
-                     CATEGORÍA 05
-                ================================= -->
-
-                <article class="glass-card">
-
-                    <span>
-                        05
-                    </span>
-
-                    <h3>
-                        Consejos
-                    </h3>
-
-                    <p>
-
-                        Pequeños trucos, recomendaciones y
-                        conocimientos prácticos adquiridos
-                        con la experiencia.
-
-                    </p>
-
-                </article>
-
-
-
-                <!-- ================================
-                     CATEGORÍA 06
-                ================================= -->
-
-                <article class="glass-card">
-
-                    <span>
-                        06
-                    </span>
-
-                    <h3>
-                        Curiosidades
-                    </h3>
-
-                    <p>
-
-                        Historias, conceptos, datos y curiosidades
-                        relacionadas con la gastronomía y el mundo
-                        de la cocina.
-
-                    </p>
-
-                </article>
-
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
 
-    <!-- =================================================
-         PUBLICACIONES
-         
-         IMPORTANTE:
-         
-         ESTE ES EL BLOQUE QUE DEBES COPIAR CADA VEZ
-         QUE QUIERAS AÑADIR UNA NUEVA PUBLICACIÓN.
-         
-         Solo tienes que cambiar:
+        <!-- =================================================
+             CITA
+        ================================================== -->
 
-         1. CATEGORÍA
-         2. FECHA
-         3. TÍTULO
-         4. DESCRIPCIÓN
-         5. ENLACE AL HTML DE "recetas/"
-         
-    ================================================== -->
+        <section class="section section-philosophy">
 
-    <section class="section">
+            <div class="container">
+
+                <div class="quote">
+
+                    <p>
+
+                        “La técnica sirve para entender
+                        el producto. El producto es lo que
+                        termina hablando.”
+
+                    </p>
+
+                    <span>
+                        LUSTAFLOW
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             02 — EXPERIENCIA
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            02 — Experiencia
+                        </p>
+
+                        <h2>
+                            Casi dos décadas
+                            entre fogones.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            La experiencia profesional no se
+                            construye únicamente cocinando.
+                            También está en la organización,
+                            el ritmo, el equipo y los pequeños
+                            detalles que hacen posible un servicio.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cards">
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Producto
+                            </h3>
+
+                            <p>
+
+                                Conocer la materia prima,
+                                respetar su punto y entender
+                                cómo sacar lo mejor de ella.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Organización
+                            </h3>
+
+                            <p>
+
+                                Mise en place, producción,
+                                stock, pedidos y orden.
+                                La cocina empieza antes del servicio.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Servicio
+                            </h3>
+
+                            <p>
+
+                                Ritmo, precisión, comunicación
+                                y capacidad para responder
+                                cuando empieza el movimiento.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            04
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Aprendizaje
+                            </h3>
+
+                            <p>
+
+                                Cada cocina, cada compañero
+                                y cada servicio puede enseñar
+                                algo nuevo.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             03 — TÉCNICAS
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            03 — Técnicas
+                        </p>
+
+                        <h2>
+                            Herramientas que forman
+                            parte del oficio.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            Una colección abierta de técnicas,
+                            procesos y conocimientos que irán
+                            incorporándose con el tiempo.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cards">
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Parrilla
+                            </h3>
+
+                            <p>
+                                Fuego, temperatura y producto.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Carnes
+                            </h3>
+
+                            <p>
+                                Cortes, puntos y diferentes
+                                métodos de cocción.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Pescados
+                            </h3>
+
+                            <p>
+                                Producto, limpieza y precisión.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            04
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Horno
+                            </h3>
+
+                            <p>
+                                Control de temperatura,
+                                tiempos y diferentes procesos.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             04 — PLATOS
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            04 — Platos
+                        </p>
+
+                        <h2>
+                            Una colección que
+                            irá creciendo.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            Aquí iremos incorporando platos,
+                            elaboraciones, ideas y fotografías.
+                            No necesitamos crear una página
+                            individual para cada receta todavía.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cards">
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Próximamente
+                            </h3>
+
+                            <p>
+                                Primer plato de la colección.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Próximamente
+                            </h3>
+
+                            <p>
+                                Nuevas elaboraciones.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Próximamente
+                            </h3>
+
+                            <p>
+                                Experiencias gastronómicas.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="card">
+
+                        <span class="card-number">
+                            04
+                        </span>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Próximamente
+                            </h3>
+
+                            <p>
+                                Ideas y platos por descubrir.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             05 — RESTAURANTES
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            05 — Restaurantes
+                        </p>
+
+                        <h2>
+                            Comer también
+                            es aprender.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            Una futura selección personal de
+                            restaurantes, experiencias gastronómicas
+                            y lugares que hayan dejado alguna
+                            impresión.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="editorial-list">
+
+
+                    <article class="editorial-item">
+
+                        <span class="editorial-number">
+                            01
+                        </span>
+
+
+                        <div>
+
+                            <h3 class="editorial-title">
+                                Próximo restaurante
+                            </h3>
+
+                            <div class="editorial-meta">
+                                Experiencia gastronómica
+                            </div>
+
+                        </div>
+
+
+                        <span class="editorial-link">
+                            Próximamente
+                        </span>
+
+                    </article>
+
+
+
+                    <article class="editorial-item">
+
+                        <span class="editorial-number">
+                            02
+                        </span>
+
+
+                        <div>
+
+                            <h3 class="editorial-title">
+                                Próxima experiencia
+                            </h3>
+
+                            <div class="editorial-meta">
+                                Gastronomía
+                            </div>
+
+                        </div>
+
+
+                        <span class="editorial-link">
+                            —
+                        </span>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             06 — GALERÍA
+        ================================================== -->
+
+        <section class="section section-closing">
+
+            <div class="container">
+
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <p class="section-label">
+                            06 — Galería
+                        </p>
+
+                        <h2>
+                            La cocina también
+                            se puede mirar.
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-intro">
+
+                        <p>
+
+                            Fotografías de platos, producto,
+                            cocina y momentos alrededor de la
+                            gastronomía.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!--
+
+                    Las imágenes reales se incorporarán
+                    posteriormente desde:
+
+                    img/cocina/
+
+                -->
+
+
+                <div class="gallery">
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="img/cocina/plato-01.jpg"
+                            alt="Plato de cocina"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="img/cocina/plato-02.jpg"
+                            alt="Elaboración gastronómica"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="img/cocina/plato-03.jpg"
+                            alt="Producto gastronómico"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
 
         <div class="container">
 
 
-            <h2 class="section-title">
-                Últimas publicaciones
-            </h2>
+            <div class="footer-content">
 
 
-            <div class="cards">
+                <div class="footer-brand">
 
+                    <a
+                        href="index.html"
+                        class="logo"
+                    >
 
-                <!-- =================================================
-                     PUBLICACIÓN
-                     
-                     COPIA TODO ESTE <article> PARA CREAR OTRA.
-                ================================================== -->
+                        <span class="logo-dot"></span>
 
-                <article class="glass-card">
-
-
-                    <!-- CATEGORÍA -->
-
-                    <span>
-                        COCINA
-                    </span>
-
-
-                    <!-- FECHA -->
-
-                    <small>
-                        Publicado · 8 de agosto de 2026
-                    </small>
-
-
-                    <!-- TÍTULO -->
-
-                    <h3>
-                        Próximamente
-                    </h3>
-
-
-                    <!-- DESCRIPCIÓN -->
-
-                    <p>
-
-                        Aquí aparecerá la primera publicación
-                        gastronómica de LUSTAFLOW.
-
-                    </p>
-
-
-                    <!-- ENLACE -->
-
-                    <!--
-
-                        Cuando tengas el artículo creado dentro
-                        de la carpeta "recetas", cambia el enlace.
-
-                        EJEMPLO:
-
-                        href="recetas/nombre-del-articulo.html"
-
-                    -->
-
-                    <a href="#" class="btn">
-
-                        Leer publicación
+                        LUSTAFLOW
 
                     </a>
 
 
-                </article>
+                    <p>
+
+                        Una mirada personal sobre
+                        lo que hago y lo que me interesa.
+
+                    </p>
+
+                </div>
 
 
-                <!-- =================================================
-                     FIN DE PUBLICACIÓN
-                ================================================== -->
+                <div class="footer-navigation">
 
+                    <a href="index.html">
+                        Inicio
+                    </a>
+
+                    <a href="sobre-mi.html">
+                        Sobre mí
+                    </a>
+
+                    <a href="estilo-de-vida.html">
+                        Estilo de vida
+                    </a>
+
+                    <a href="escritos.html">
+                        Escritos
+                    </a>
+
+                    <a href="proyectos.html">
+                        Proyectos
+                    </a>
+
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+
+                    ©
+                    <span id="current-year"></span>
+                    LUSTAFLOW
+
+                </span>
+
+
+                <span>
+                    Hecho con intención.
+                </span>
 
             </div>
 
         </div>
 
-    </section>
+    </footer>
 
 
 
-    <!-- =================================================
-         BLOQUE INFORMATIVO
-    ================================================== -->
+    <!-- JAVASCRIPT -->
 
-    <section class="intro">
-
-        <div class="container">
-
-            <span class="subtitle">
-                UNA COCINA EN CONSTANTE APRENDIZAJE
-            </span>
-
-            <h2>
-                La experiencia también se comparte.
-            </h2>
-
-            <p>
-
-                Después de años trabajando en cocina, existen
-                conocimientos que no aparecen necesariamente en
-                una receta. Detalles aprendidos con la práctica,
-                errores, observaciones y pequeñas cosas que
-                terminan marcando la diferencia.
-
-            </p>
-
-            <p>
-
-                Este espacio irá creciendo poco a poco con nuevos
-                contenidos y experiencias.
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         CITA FINAL
-    ================================================== -->
-
-    <section class="quote">
-
-        <h2>
-
-            "Conocer el producto es el principio.
-            Entender el proceso es lo que transforma la cocina."
-
-        </h2>
-
-        <p>
-            LUSTAFLOW
-        </p>
-
-    </section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-
-<footer>
-
-    <h3>
-        LUSTAFLOW
-    </h3>
-
-    <p>
-
-        © <span id="year"></span>
-        Jordi Lostaló · Todos los derechos reservados.
-
-    </p>
-
-</footer>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
-
-<script src="js/main.js"></script>
-
+    <script src="js/main.js"></script>
 
 </body>
 
