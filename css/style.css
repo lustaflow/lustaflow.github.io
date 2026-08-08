@@ -1111,57 +1111,1733 @@ nav ul{
 }
 
 .back-button .btn{
+/* =========================================================
+   LUSTAFLOW
+   STYLE.CSS
+   Diseño global
+   ========================================================= */
 
-    display:inline-block;
 
-    padding:15px 35px;
+/* =========================================================
+   1. VARIABLES
+   ========================================================= */
 
-    border-radius:40px;
+:root{
+
+    --bg:#0d1117;
+    --bg-soft:#111821;
+    --bg-card:rgba(255,255,255,.045);
+
+    --primary:#00d9ff;
+    --primary-soft:rgba(0,217,255,.12);
+    --primary-glow:rgba(0,217,255,.28);
+
+    --white:#ffffff;
+    --text:#d7dfe8;
+    --text-soft:#aab5c1;
+    --text-muted:#7f8b98;
+
+    --border:rgba(255,255,255,.09);
+    --border-hover:rgba(0,217,255,.45);
+
+    --radius-sm:12px;
+    --radius-md:18px;
+    --radius-lg:26px;
+
+    --shadow:
+        0 20px 60px rgba(0,0,0,.35);
+
+    --shadow-hover:
+        0 25px 70px rgba(0,0,0,.5);
+
+    --transition:
+        .35s cubic-bezier(.2,.8,.2,1);
+
+    --max-width:1200px;
+
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:'Poppins',sans-serif;
+
+    color:var(--white);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(0,217,255,.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 100%,
+            rgba(0,90,120,.16),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+
+}
+
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+            rgba(255,255,255,.012) 1px,
+            transparent 1px
+        );
+
+    background-size:100% 4px;
+
+    opacity:.15;
+
+    z-index:-1;
+
+}
+
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+
+a{
+
+    color:inherit;
+
+}
+
+
+button,
+input,
+textarea{
+
+    font-family:inherit;
+
+}
+
+
+/* =========================================================
+   3. SELECCIÓN DE TEXTO
+   ========================================================= */
+
+::selection{
+
+    background:var(--primary);
+
+    color:#001018;
+
+}
+
+
+/* =========================================================
+   4. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg);
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+
+/* =========================================================
+   5. NAVBAR
+   ========================================================= */
+
+/*
+   Nueva navegación:
+
+   - Más compacta
+   - Forma de cápsula
+   - Menos pesada visualmente
+   - Separación clara entre logo y enlaces
+*/
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    padding:18px 20px;
+
+    background:transparent;
+
+    transition:
+        background var(--transition),
+        padding var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+/* Estado que utiliza el JS al hacer scroll */
+
+header.scrolled{
+
+    padding:12px 20px;
+
+    background:rgba(13,17,23,.78);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.30);
+
+}
+
+
+nav{
+
+    max-width:var(--max-width);
+
+    margin:auto;
+
+    min-height:58px;
+
+    padding:8px 10px 8px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:rgba(13,17,23,.55);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+}
+
+
+/* LOGO */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--white);
 
     text-decoration:none;
 
-    background:#00d9ff;
+    font-size:19px;
 
-    color:#081018;
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    white-space:nowrap;
+
+}
+
+
+.logo::before{
+
+    content:"";
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    box-shadow:
+        0 0 14px var(--primary);
+
+}
+
+
+/* MENU */
+
+nav ul{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+}
+
+
+nav li{
+
+    position:relative;
+
+}
+
+
+nav a{
+
+    position:relative;
+
+    display:block;
+
+    padding:9px 13px;
+
+    color:var(--text-soft);
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    border-radius:10px;
+
+    transition:
+        color var(--transition),
+        background var(--transition);
+
+}
+
+
+nav a:hover{
+
+    color:var(--white);
+
+    background:rgba(255,255,255,.055);
+
+}
+
+
+/* Indicador inferior */
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:4px;
+
+    width:0;
+
+    height:2px;
+
+    border-radius:10px;
+
+    background:var(--primary);
+
+    box-shadow:
+        0 0 8px rgba(0,217,255,.7);
+
+    transform:translateX(-50%);
+
+    transition:
+        width var(--transition);
+
+}
+
+
+nav a:hover::after{
+
+    width:18px;
+
+}
+
+
+/* =========================================================
+   6. CONTENEDORES GENERALES
+   ========================================================= */
+
+.container{
+
+    width:min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin:auto;
+
+}
+
+
+.section{
+
+    width:min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin:100px auto;
+
+}
+
+
+/* =========================================================
+   7. HERO PRINCIPAL
+   ========================================================= */
+
+.hero{
+
+    width:min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    min-height:100vh;
+
+    margin:auto;
+
+    padding:150px 0 90px;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.05fr)
+        minmax(320px,.95fr);
+
+    align-items:center;
+
+    gap:80px;
+
+}
+
+
+/* Texto */
+
+.hero-text{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.subtitle{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--primary);
+
+    font-size:12px;
 
     font-weight:600;
 
-    transition:.3s;
+    letter-spacing:4px;
 
-}
-
-.back-button .btn:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:0 10px 30px rgba(0,217,255,.35);
+    text-transform:uppercase;
 
 }
 
 
-/* RESPONSIVE */
+.subtitle::before{
 
-@media(max-width:768px){
+    content:"";
 
-.hero-content h1{
+    width:28px;
 
-    font-size:40px;
+    height:1px;
+
+    background:var(--primary);
+
+    box-shadow:
+        0 0 10px var(--primary);
 
 }
 
-.article h1{
 
-    font-size:36px;
+.hero-text h1{
+
+    max-width:800px;
+
+    margin:20px 0 25px;
+
+    font-size:clamp(
+        46px,
+        6vw,
+        78px
+    );
+
+    line-height:.98;
+
+    letter-spacing:-3px;
 
 }
 
-.article p{
+
+.hero-text h1 span{
+
+    color:var(--primary);
+
+}
+
+
+.hero-text p{
+
+    max-width:650px;
+
+    margin-bottom:35px;
+
+    color:var(--text-soft);
 
     font-size:17px;
 
+    line-height:1.8;
+
 }
 
+
+/* =========================================================
+   8. HERO SECUNDARIO
+   ========================================================= */
+
+.page-hero{
+
+    width:min(
+        calc(100% - 40px),
+        1000px
+    );
+
+    min-height:65vh;
+
+    margin:auto;
+
+    padding:160px 0 80px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+
+.hero-small{
+
+    min-height:55vh;
+
+}
+
+
+.hero-content{
+
+    max-width:850px;
+
+}
+
+
+.hero-content h1{
+
+    margin-bottom:20px;
+
+    font-size:clamp(
+        42px,
+        6vw,
+        68px
+    );
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+}
+
+
+.hero-content p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:var(--text-soft);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   9. BOTONES
+   ========================================================= */
+
+.hero-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+}
+
+
+.boton,
+.back-button .btn{
+
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 25px;
+
+    border:1px solid transparent;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:#001018;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    overflow:hidden;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition),
+        border var(--transition);
+
+}
+
+
+.boton::before,
+.back-button .btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 25%,
+            rgba(255,255,255,.35),
+            transparent 75%
+        );
+
+    transform:translateX(-120%);
+
+    transition:transform .7s ease;
+
+}
+
+
+.boton:hover::before,
+.back-button .btn:hover::before{
+
+    transform:translateX(120%);
+
+}
+
+
+.boton:hover,
+.back-button .btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0,217,255,.25);
+
+}
+
+
+.boton.secundario{
+
+    background:transparent;
+
+    color:var(--white);
+
+    border-color:var(--border);
+
+}
+
+
+.boton.secundario:hover{
+
+    color:var(--primary);
+
+    border-color:var(--border-hover);
+
+    background:var(--primary-soft);
+
+}
+
+
+/* =========================================================
+   10. HERO IMAGEN
+   ========================================================= */
+
+.hero-img{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.hero-img::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:70%;
+
+    height:70%;
+
+    background:var(--primary);
+
+    filter:blur(100px);
+
+    opacity:.10;
+
+    border-radius:50%;
+
+    z-index:-1;
+
+}
+
+
+.hero-img img{
+
+    width:100%;
+
+    max-width:450px;
+
+    border-radius:var(--radius-lg);
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55);
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1),
+        box-shadow .6s ease;
+
+}
+
+
+.hero-img:hover img{
+
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.65);
+
+}
+
+
+/* =========================================================
+   11. INTRO
+   ========================================================= */
+
+.intro{
+
+    width:min(
+        calc(100% - 40px),
+        900px
+    );
+
+    margin:100px auto;
+
+    text-align:center;
+
+}
+
+
+.intro h2{
+
+    margin-bottom:20px;
+
+    font-size:clamp(
+        30px,
+        4vw,
+        44px
+    );
+
+    line-height:1.1;
+
+}
+
+
+.intro p{
+
+    color:var(--text-soft);
+
+    font-size:17px;
+
+    line-height:1.9;
+
+}
+
+
+/* =========================================================
+   12. TÍTULOS DE SECCIÓN
+   ========================================================= */
+
+.section-title{
+
+    margin-bottom:45px;
+
+    text-align:center;
+
+}
+
+
+.section-title .eyebrow{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+}
+
+
+.section-title h2{
+
+    font-size:clamp(
+        30px,
+        4vw,
+        42px
+    );
+
+    line-height:1.1;
+
+}
+
+
+.section-title p{
+
+    max-width:650px;
+
+    margin:15px auto 0;
+
+    color:var(--text-muted);
+
+}
+
+
+/* =========================================================
+   13. SISTEMA DE CARDS
+   ========================================================= */
+
+.cards{
+
+    width:min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+.card,
+.glass-card,
+.contact-card,
+.biografia article{
+
+    position:relative;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(14px);
+
+    -webkit-backdrop-filter:blur(14px);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.12);
+
+    transition:
+        transform var(--transition),
+        border var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.card::before,
+.glass-card::before,
+.contact-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:15%;
+
+    width:70%;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.18),
+            transparent
+        );
+
+}
+
+
+.card:hover,
+.glass-card:hover,
+.contact-card:hover,
+.biografia article:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--border-hover);
+
+    background:
+        rgba(255,255,255,.06);
+
+    box-shadow:
+        var(--shadow-hover);
+
+}
+
+
+/* CARD NORMAL */
+
+.card{
+
+    padding:30px;
+
+}
+
+
+.card h2{
+
+    margin-bottom:15px;
+
+    font-size:22px;
+
+}
+
+
+.card p{
+
+    margin-bottom:22px;
+
+    color:var(--text-soft);
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+.card a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:color var(--transition);
+
+}
+
+
+.card a:hover{
+
+    color:var(--white);
+
+}
+
+
+/* =========================================================
+   14. QUOTE
+   ========================================================= */
+
+.quote{
+
+    position:relative;
+
+    width:min(
+        calc(100% - 40px),
+        900px
+    );
+
+    margin:130px auto;
+
+    padding:50px 20px;
+
+    text-align:center;
+
+}
+
+
+.quote::before{
+
+    content:"“";
+
+    display:block;
+
+    margin-bottom:-30px;
+
+    color:rgba(0,217,255,.15);
+
+    font-family:Georgia,serif;
+
+    font-size:120px;
+
+    line-height:1;
+
+}
+
+
+.quote h2{
+
+    font-size:clamp(
+        28px,
+        4vw,
+        42px
+    );
+
+    line-height:1.25;
+
+    font-weight:500;
+
+}
+
+
+.quote p{
+
+    margin-top:18px;
+
+    color:var(--text-muted);
+
+}
+
+
+/* =========================================================
+   15. SOBRE MÍ
+   ========================================================= */
+
+.biografia{
+
+    width:min(
+        calc(100% - 40px),
+        950px
+    );
+
+    margin:70px auto 110px;
+
+}
+
+
+.biografia article{
+
+    margin-bottom:30px;
+
+    padding:45px;
+
+}
+
+
+.biografia article:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+.biografia article:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+.biografia h2{
+
+    margin-bottom:20px;
+
+    font-size:30px;
+
+    line-height:1.2;
+
+}
+
+
+.biografia h2::before{
+
+    content:"";
+
+    display:inline-block;
+
+    width:26px;
+
+    height:2px;
+
+    margin-right:12px;
+
+    vertical-align:middle;
+
+    background:var(--primary);
+
+    box-shadow:
+        0 0 10px var(--primary);
+
+}
+
+
+.biografia p{
+
+    margin-bottom:20px;
+
+    color:var(--text);
+
+    font-size:16px;
+
+    line-height:1.9;
+
+}
+
+
+.biografia p:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+/* Primera letra editorial */
+
+.biografia article:first-child
+p:first-of-type::first-letter{
+
+    float:left;
+
+    padding-right:10px;
+
+    color:var(--primary);
+
+    font-size:58px;
+
+    font-weight:700;
+
+    line-height:.85;
+
+}
+
+
+/* Separador */
+
+.biografia article::after{
+
+    content:"";
+
+    display:block;
+
+    width:40px;
+
+    height:2px;
+
+    margin-top:30px;
+
+    background:var(--primary);
+
+    opacity:.7;
+
+}
+
+
+.biografia article:last-child::after{
+
+    display:none;
+
+}
+
+
+/* =========================================================
+   16. CONTACTO
+   ========================================================= */
+
+.contact-container{
+
+    width:min(
+        calc(100% - 40px),
+        1100px
+    );
+
+    margin:70px auto 110px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+
+.contact-card{
+
+    padding:40px;
+
+}
+
+
+.contact-card h2{
+
+    margin-bottom:15px;
+
+    font-size:30px;
+
+}
+
+
+.contact-card p{
+
+    margin-bottom:20px;
+
+    color:var(--text-soft);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+
+/* LINKS */
+
+.contact-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-top:25px;
+
+}
+
+
+.contact-links a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:15px 18px;
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-sm);
+
+    transition:
+        transform var(--transition),
+        color var(--transition),
+        border var(--transition),
+        background var(--transition);
+
+}
+
+
+.contact-links a::after{
+
+    content:"→";
+
+    color:var(--primary);
+
+    transition:
+        transform var(--transition);
+
+}
+
+
+.contact-links a:hover{
+
+    color:var(--primary);
+
+    background:var(--primary-soft);
+
+    border-color:var(--border-hover);
+
+    transform:translateX(5px);
+
+}
+
+
+.contact-links a:hover::after{
+
+    transform:translateX(4px);
+
+}
+
+
+/* =========================================================
+   17. ESCRITOS
+   ========================================================= */
+
+/*
+   Aquí cambiamos bastante la estética.
+
+   La sección de escritos deja de parecer una colección
+   genérica de "cards" y adquiere un carácter editorial.
+*/
+
+
+.writings-grid{
+
+    width:min(
+        calc(100% - 40px),
+        1050px
+    );
+
+    margin:70px auto 110px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+
+/* Card de artículo */
+
 .glass-card{
+
+    padding:30px;
+
+}
+
+
+.glass-card span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--primary);
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.glass-card span::before{
+
+    content:"";
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    box-shadow:
+        0 0 8px var(--primary);
+
+}
+
+
+.glass-card h3{
+
+    margin:15px 0 12px;
+
+    font-size:24px;
+
+    line-height:1.25;
+
+}
+
+
+.glass-card p{
+
+    margin-bottom:22px;
+
+    color:var(--text-soft);
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+/* Link artículo */
+
+.glass-card a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+.glass-card a::after{
+
+    content:"→";
+
+    transition:
+        transform var(--transition);
+
+}
+
+
+.glass-card a:hover::after{
+
+    transform:translateX(5px);
+
+}
+
+
+/* =========================================================
+   18. ARTÍCULOS INDIVIDUALES
+   ========================================================= */
+
+.article{
+
+    width:min(
+        calc(100% - 40px),
+        820px
+    );
+
+    margin:70px auto 110px;
+
+}
+
+
+.article-header{
+
+    margin-bottom:55px;
+
+}
+
+
+.article h1{
+
+    margin-bottom:18px;
+
+    font-size:clamp(
+        38px,
+        5vw,
+        58px
+    );
+
+    line-height:1.05;
+
+    letter-spacing:-1.5px;
+
+}
+
+
+.article-meta{
+
+    color:var(--primary);
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.article h2{
+
+    margin:55px 0 20px;
+
+    font-size:30px;
+
+    line-height:1.2;
+
+}
+
+
+.article h3{
+
+    margin:40px 0 15px;
+
+    font-size:22px;
+
+}
+
+
+.article p{
+
+    margin-bottom:25px;
+
+    color:var(--text);
+
+    font-size:17px;
+
+    line-height:2;
+
+}
+
+
+.article ul,
+.article ol{
+
+    margin:25px 0;
+
+    padding-left:25px;
+
+    color:var(--text);
+
+}
+
+
+.article li{
+
+    margin-bottom:10px;
+
+}
+
+
+/* Citas */
+
+.article blockquote{
+
+    position:relative;
+
+    margin:45px 0;
+
+    padding:30px 30px 30px 35px;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid var(--border);
+
+    border-left:3px solid var(--primary);
+
+    border-radius:0 var(--radius-md) var(--radius-md) 0;
+
+    color:var(--text);
+
+    font-style:italic;
+
+}
+
+
+.article blockquote::before{
+
+    content:"“";
+
+    position:absolute;
+
+    top:5px;
+    left:14px;
+
+    color:var(--primary);
+
+    font-family:Georgia,serif;
+
+    font-size:42px;
+
+}
+
+
+/* =========================================================
+   19. BOTÓN VOLVER
+   ========================================================= */
+
+.back-button{
+
+    margin:60px auto 100px;
+
+    text-align:center;
+
+}
+
+
+.back-button .btn{
+
+    padding:13px 24px;
+
+}
+
+
+/* =========================================================
+   20. FOOTER
+   ====
+d{
 
     padding:25px;
 
