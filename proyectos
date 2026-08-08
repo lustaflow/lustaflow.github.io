@@ -1,0 +1,707 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+    content="Proyectos personales, desarrollo web, tecnología e ideas de Lustaflow.">
+
+<meta name="author" content="Lustaflow">
+
+<title>Proyectos | LUSTAFLOW</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
+
+</head><body><!-- =========================
+     HEADER / NAVBAR
+========================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                LUSTAFLOW
+            </a>
+
+
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sobre-mi.html">
+                        Sobre mí
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cocina.html">
+                        Cocina
+                    </a>
+                </li>
+
+                <li>
+                    <a href="estilo-de-vida.html">
+                        Estilo de vida
+                    </a>
+                </li>
+
+                <li>
+                    <a href="escritos.html">
+                        Escritos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="proyectos.html" class="active">
+                        Proyectos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<main>
+
+    <section class="hero page-hero">
+
+        <div class="hero-text reveal">
+
+            <span class="eyebrow">
+                PROYECTOS
+            </span>
+
+            <h1>
+                Ideas que toman forma.
+            </h1>
+
+            <p>
+                Un espacio para reunir proyectos personales,
+                experimentos, desarrollo web, tecnología e ideas
+                que todavía están en proceso de convertirse en algo más.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="intro reveal">
+
+        <div class="container">
+
+            <span class="eyebrow">
+                UNA PARTE DEL CAMINO
+            </span>
+
+            <h2>
+                Crear también es aprender.
+            </h2>
+
+            <p>
+                No todos los proyectos nacen con una finalidad profesional.
+                Algunos empiezan simplemente por curiosidad, por ganas de
+                aprender algo nuevo o por la necesidad de convertir una idea
+                en algo tangible.
+            </p>
+
+            <p>
+                Esta sección irá creciendo con el tiempo y funcionará como
+                un archivo de todo aquello que voy creando, experimentando
+                y desarrollando.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROYECTOS PERSONALES
+    ========================== -->
+
+    <section class="content-section">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    01
+                </span>
+
+                <h2>
+                    Proyectos personales
+                </h2>
+
+                <p>
+                    Ideas y proyectos nacidos de intereses personales,
+                    creatividad y ganas de construir.
+                </p>
+
+            </div>
+
+
+
+            <div class="cards-grid">
+
+
+                <!-- PROYECTO 01 -->
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <h3>
+                            LUSTAFLOW
+                        </h3>
+
+                        <p>
+                            Proyecto de marca personal que reúne trayectoria
+                            profesional, gastronomía, creatividad, escritos,
+                            estilo de vida y proyectos personales.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                Web
+                            </span>
+
+                            <span>
+                                Diseño
+                            </span>
+
+                            <span>
+                                Marca personal
+                            </span>
+
+                        </div>
+
+                        <a href="index.html" class="btn btn-secondary">
+                            Ver proyecto
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROYECTO FUTURO -->
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Próximo proyecto
+                        </h3>
+
+                        <p>
+                            Este espacio queda reservado para una nueva idea,
+                            proyecto personal o experimento que vaya tomando
+                            forma en el futuro.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                Próximamente
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROYECTO FUTURO -->
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Próximamente
+                        </h3>
+
+                        <p>
+                            Un nuevo proyecto aparecerá aquí cuando haya
+                            algo que merezca ser compartido.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                En desarrollo
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DESARROLLO WEB
+    ========================== -->
+
+    <section class="content-section">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    02
+                </span>
+
+                <h2>
+                    Desarrollo web
+                </h2>
+
+                <p>
+                    Proyectos relacionados con programación, diseño web
+                    y experimentación digital.
+                </p>
+
+            </div>
+
+
+
+            <div class="cards-grid">
+
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <h3>
+                            LUSTAFLOW Website
+                        </h3>
+
+                        <p>
+                            Desarrollo de esta página web desde cero
+                            utilizando HTML5, CSS3 y JavaScript vanilla,
+                            preparada para funcionar mediante GitHub Pages.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                HTML5
+                            </span>
+
+                            <span>
+                                CSS3
+                            </span>
+
+                            <span>
+                                JavaScript
+                            </span>
+
+                            <span>
+                                GitHub Pages
+                            </span>
+
+                        </div>
+
+                        <!--
+                            CUANDO TENGAS EL ENLACE DE GITHUB
+                            PUEDES ACTIVAR ESTE BOTÓN:
+
+                            <a href="TU-ENLACE-GITHUB"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-secondary">
+                                Ver código
+                            </a>
+                        -->
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Próximo desarrollo
+                        </h3>
+
+                        <p>
+                            Espacio preparado para futuros proyectos de
+                            programación, herramientas digitales o
+                            experimentos con nuevas tecnologías.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                En desarrollo
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TECNOLOGÍA
+    ========================== -->
+
+    <section class="content-section">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    03
+                </span>
+
+                <h2>
+                    Tecnología
+                </h2>
+
+                <p>
+                    Herramientas, experimentos y aprendizajes relacionados
+                    con el mundo digital.
+                </p>
+
+            </div>
+
+
+
+            <div class="cards-grid">
+
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <h3>
+                            Experimentos
+                        </h3>
+
+                        <p>
+                            Pequeños experimentos para aprender,
+                            probar nuevas ideas y descubrir diferentes
+                            posibilidades tecnológicas.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                Tecnología
+                            </span>
+
+                            <span>
+                                Experimentación
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <h3>
+                            Herramientas
+                        </h3>
+
+                        <p>
+                            Proyectos orientados a crear herramientas
+                            sencillas que puedan resultar útiles en
+                            diferentes ámbitos.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                Tools
+                            </span>
+
+                            <span>
+                                Ideas
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         IDEAS FUTURAS
+    ========================== -->
+
+    <section class="content-section">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">
+                    04
+                </span>
+
+                <h2>
+                    Ideas futuras
+                </h2>
+
+                <p>
+                    No todas las ideas necesitan estar terminadas para
+                    tener un lugar.
+                </p>
+
+            </div>
+
+
+
+            <div class="quote reveal">
+
+                <p>
+                    “Las ideas también forman parte del proceso,
+                    incluso antes de convertirse en proyectos.”
+                </p>
+
+            </div>
+
+
+
+            <div class="cards-grid">
+
+
+                <!-- IDEA 01 -->
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <h3>
+                            Idea pendiente
+                        </h3>
+
+                        <p>
+                            Espacio reservado para desarrollar una futura
+                            idea. Aquí podremos añadir una descripción,
+                            imágenes, objetivos y evolución del proyecto.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                Idea
+                            </span>
+
+                            <span>
+                                Futuro
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- IDEA 02 -->
+
+                <article class="card glass-card reveal">
+
+                    <div class="card-content">
+
+                        <h3>
+                            Proyecto en proceso
+                        </h3>
+
+                        <p>
+                            Cuando exista un proyecto en desarrollo,
+                            podremos utilizar esta tarjeta para explicar
+                            su evolución y mostrar el proceso.
+                        </p>
+
+                        <div class="card-tags">
+
+                            <span>
+                                WIP
+                            </span>
+
+                            <span>
+                                Proceso
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CIERRE
+    ========================== -->
+
+    <section class="intro reveal">
+
+        <div class="container">
+
+            <span class="eyebrow">
+                CONTINUAR CREANDO
+            </span>
+
+            <h2>
+                Esto no está terminado.
+            </h2>
+
+            <p>
+                Y probablemente nunca lo estará.
+                La idea es que esta sección evolucione conmigo y
+                documente aquello que vaya construyendo a lo largo
+                del tiempo.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <p>
+            © <span id="year"></span> LUSTAFLOW
+        </p>
+
+        <p>
+            Hecho con ideas, curiosidad y código.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- JavaScript -->
+
+<script src="js/main.js"></script>
+
+</body></html>
