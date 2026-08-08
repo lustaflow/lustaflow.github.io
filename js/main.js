@@ -1,815 +1,833 @@
-// =========================
-// HEADER AL HACER SCROLL
-// =========================
-
-const header = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-
-    if (!header) return;
-
-    if (window.scrollY > 60) {
-
-        header.style.background = "rgba(13,17,23,.96)";
-        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.45)";
-
-    } else {
-
-        header.style.background = "rgba(13,17,23,.75)";
-        header.style.boxShadow = "none";
-
-    }
-
-});
-
-
-// =========================
-// ANIMACIONES
-// =========================
-
-const elementos = document.querySelectorAll(
-    ".hero-text, .hero-img, .hero-content, .intro, .card, .glass-card, .section, .article, .quote, .biografia article, .contact-card, .back-button"
-);
-
-const observador = new IntersectionObserver((entradas) => {
-
-    entradas.forEach((entrada) => {
 /* =========================================================
-   LUSTAFLOW
-   MAIN.JS
-   Interacciones y animaciones globales
+   LUSTAFLOW — MAIN.JS
+   Navegación + animaciones + microinteracciones
    ========================================================= */
 
 
-/* =========================================================
-   01. ELEMENTOS PRINCIPALES
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-const header = document.querySelector("header");
-const nav = document.querySelector("nav");
 
+    /* =====================================================
+       1. ELEMENTOS PRINCIPALES
+       ===================================================== */
 
-/* =========================================================
-   02. HEADER AL HACER SCROLL
-   ========================================================= */
+    const header =
+        document.querySelector("header, .header");
 
-/*
-   Ya no modificamos background, box-shadow, etc. mediante
-   JavaScript.
-
-   El CSS se encarga del diseño.
-
-   JS únicamente añade/quita la clase .scrolled.
-*/
-
-function actualizarHeader() {
-
-    if (!header) return;
-
-    if (window.scrollY > 40) {
-
-        header.classList.add("scrolled");
-
-    } else {
-
-        header.classList.remove("scrolled");
-
-    }
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    actualizarHeader,
-    { passive: true }
-);
-
-actualizarHeader();
-
-
-/* =========================================================
-   03. ANIMACIONES CON INTERSECTION OBSERVER
-   ========================================================= */
-
-const elementosAnimados = document.querySelectorAll(
-    `
-    .hero-text,
-    .hero-img,
-    .hero-content,
-    .intro,
-    .section-title,
-    .section,
-    .card,
-    .glass-card,
-    .quote,
-    .biografia article,
-    .contact-card,
-    .article,
-    .back-button
-    `
-);
-
-
-const observador = new IntersectionObserver(
-    (entradas, observer) => {
-
-        entradas.forEach((entrada) => {
-
-            if (!entrada.isIntersecting) return;
-
-            entrada.target.classList.add("visible");
-
-            /*
-               Una vez que aparece, dejamos de observarlo.
-               Esto evita que la animación se repita cada vez
-               que el usuario vuelve a pasar por la sección.
-            */
-
-            observer.unobserve(entrada.target);
-
-        });
-
-    },
-    {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px"
-    }
-);
-
-
-elementosAnimados.forEach((elemento) => {
-
-    observador.observe(elemento);
-
-});
-
-
-/* =========================================================
-   04. ANIMACIÓN INICIAL DEL HERO
-   ========================================================= */
-
-/*
-   Los elementos principales del hero entran ligeramente
-   escalonados para evitar una aparición completamente
-   estática.
-*/
-
-const heroText = document.querySelector(".hero-text");
-const heroImage = document.querySelector(".hero-img");
-const heroContent = document.querySelector(".hero-content");
-
-
-function animacionHeroInicial() {
-
-    if (heroText) {
-
-        setTimeout(() => {
-
-            heroText.classList.add("visible");
-
-        }, 150);
-
-    }
-
-
-    if (heroImage) {
-
-        setTimeout(() => {
-
-            heroImage.classList.add("visible");
-
-        }, 300);
-
-    }
-
-
-    if (heroContent) {
-
-        setTimeout(() => {
-
-            heroContent.classList.add("visible");
-
-        }, 180);
-
-    }
-
-}
-
-
-window.addEventListener(
-    "load",
-    animacionHeroInicial
-);
-
-
-/* =========================================================
-   05. NAVBAR — ENLACE ACTIVO
-   ========================================================= */
-
-/*
-   Detectamos automáticamente la página actual.
-
-   Esto permite resaltar el apartado en el que estamos.
-*/
-
-const enlacesNav = document.querySelectorAll(
-    "nav a[href]"
-);
-
-
-const paginaActual =
-    window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
-
-
-enlacesNav.forEach((enlace) => {
-
-    const href = enlace
-        .getAttribute("href")
-        ?.split("/")
-        .pop()
-        .toLowerCase();
-
-
-    if (!href) return;
-
-
-    /*
-       index.html y la raíz se consideran la misma página.
-    */
-
-    const esInicio =
-        (paginaActual === "" || paginaActual === "index.html") &&
-        (href === "" || href === "index.html");
-
-
-    if (href === paginaActual || esInicio) {
-
-        enlace.classList.add("active");
-
-    }
-
-});
-
-
-/* =========================================================
-   06. NAVEGACIÓN SUAVE
-   ========================================================= */
-
-/*
-   Para enlaces internos tipo #seccion.
-
-   No interferimos con enlaces normales entre páginas.
-*/
-
-const enlacesInternos = document.querySelectorAll(
-    'a[href^="#"]'
-);
-
-
-enlacesInternos.forEach((enlace) => {
-
-    enlace.addEventListener("click", (evento) => {
-
-        const destinoID =
-            enlace.getAttribute("href");
-
-
-        if (!destinoID || destinoID === "#") return;
-
-
-        const destino =
-            document.querySelector(destinoID);
-
-
-        if (!destino) return;
-
-
-        evento.preventDefault();
-
-
-        destino.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    });
-
-});
-
-
-/* =========================================================
-   07. HOVER DINÁMICO DE TARJETAS
-   ========================================================= */
-
-/*
-   Añade una pequeña interacción al movimiento del ratón.
-
-   No aplicamos transform directamente: utilizamos variables
-   CSS para que el efecto siga estando controlado por CSS.
-*/
-
-const tarjetas = document.querySelectorAll(
-    ".card, .glass-card, .contact-card"
-);
-
-
-tarjetas.forEach((tarjeta) => {
-
-    tarjeta.addEventListener("mousemove", (evento) => {
-
-        const rect =
-            tarjeta.getBoundingClientRect();
-
-
-        const x =
-            ((evento.clientX - rect.left) / rect.width) * 100;
-
-
-        const y =
-            ((evento.clientY - rect.top) / rect.height) * 100;
-
-
-        tarjeta.style.setProperty(
-            "--mouse-x",
-            `${x}%`
+    const nav =
+        document.querySelector(
+            "header nav, .header nav, .navbar"
         );
 
+    const menu =
+        nav?.querySelector("ul");
 
-        tarjeta.style.setProperty(
-            "--mouse-y",
-            `${y}%`
-        );
+    let toggle =
+        nav?.querySelector(".nav-toggle");
 
-    });
 
+    /* =====================================================
+       2. CREAR MENÚ HAMBURGUESA
+       
+       Si el HTML todavía no contiene el botón,
+       JavaScript lo genera automáticamente.
+       ===================================================== */
 
-    tarjeta.addEventListener("mouseleave", () => {
+    if (nav && menu && !toggle) {
 
-        tarjeta.style.removeProperty(
-            "--mouse-x"
-        );
-
-        tarjeta.style.removeProperty(
-            "--mouse-y"
-        );
-
-    });
-
-});
-
-
-/* =========================================================
-   08. IMÁGENES — MOVIMIENTO MUY SUTIL
-   ========================================================= */
-
-/*
-   Solamente en dispositivos con ratón.
-
-   En móvil no activamos este efecto.
-*/
-
-const dispositivoConRaton =
-    window.matchMedia(
-        "(hover: hover) and (pointer: fine)"
-    ).matches;
-
-
-if (dispositivoConRaton) {
-
-    const imagenesHero =
-        document.querySelectorAll(
-            ".hero-img img"
-        );
-
-
-    imagenesHero.forEach((imagen) => {
-
-        imagen.addEventListener(
-            "mousemove",
-            (evento) => {
-
-                const rect =
-                    imagen.getBoundingClientRect();
-
-
-                const x =
-                    (evento.clientX - rect.left)
-                    / rect.width
-                    - 0.5;
-
-
-                const y =
-                    (evento.clientY - rect.top)
-                    / rect.height
-                    - 0.5;
-
-
-                imagen.style.transform =
-                    `
-                    translate(
-                        ${x * 5}px,
-                        ${y * 5}px
-                    )
-                    scale(1.012)
-                    `;
-
-            }
-        );
-
-
-        imagen.addEventListener(
-            "mouseleave",
-            () => {
-
-                imagen.style.transform =
-                    "";
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   09. BOTONES
-   ========================================================= */
-
-/*
-   IMPORTANTE:
-
-   Ya NO modificamos transform mediante JavaScript.
-
-   El CSS nuevo controla los hover y las animaciones.
-
-   Aquí solamente añadimos una pequeña clase al pulsar.
-*/
-
-const botones =
-    document.querySelectorAll(
-        ".boton, .btn"
-    );
-
-
-botones.forEach((boton) => {
-
-    boton.addEventListener(
-        "pointerdown",
-        () => {
-
-            boton.classList.add(
-                "is-pressed"
-            );
-
-        }
-    );
-
-
-    boton.addEventListener(
-        "pointerup",
-        () => {
-
-            boton.classList.remove(
-                "is-pressed"
-            );
-
-        }
-    );
-
-
-    boton.addEventListener(
-        "pointerleave",
-        () => {
-
-            boton.classList.remove(
-                "is-pressed"
-            );
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   10. MENÚ MÓVIL
-   ========================================================= */
-
-/*
-   El CSS actual mantiene la navegación horizontal en móvil.
-
-   Este código prepara la estructura para convertirla en
-   menú móvil sin romper las páginas que todavía utilicen
-   el HTML antiguo.
-
-   Si el header ya tiene un botón de menú, lo reutilizamos.
-*/
-
-if (nav) {
-
-    let menuButton =
-        nav.querySelector(
-            ".menu-toggle, .mobile-menu-toggle"
-        );
-
-
-    const lista =
-        nav.querySelector("ul");
-
-
-    /*
-       Si el HTML todavía no tiene botón, lo creamos.
-    */
-
-    if (!menuButton && lista) {
-
-        menuButton =
+        toggle =
             document.createElement("button");
 
+        toggle.className =
+            "nav-toggle";
 
-        menuButton.className =
-            "mobile-menu-toggle";
-
-
-        menuButton.type =
+        toggle.type =
             "button";
 
-
-        menuButton.setAttribute(
+        toggle.setAttribute(
             "aria-label",
             "Abrir menú"
         );
 
-
-        menuButton.setAttribute(
+        toggle.setAttribute(
             "aria-expanded",
             "false"
         );
 
-
-        menuButton.innerHTML = `
+        toggle.innerHTML = `
             <span></span>
             <span></span>
             <span></span>
         `;
 
+        menu.id =
+            menu.id || "main-menu";
 
-        nav.appendChild(
-            menuButton
+        toggle.setAttribute(
+            "aria-controls",
+            menu.id
         );
 
+        nav.insertBefore(
+            toggle,
+            menu
+        );
     }
 
 
-    /*
-       Funcionamiento del botón.
-    */
+    /* =====================================================
+       3. NAVBAR AL HACER SCROLL
+       ===================================================== */
 
-    if (menuButton && lista) {
+    const updateHeader =
+        () => {
 
-        menuButton.addEventListener(
+            if (!header)
+                return;
+
+            const scrolled =
+                window.scrollY > 35;
+
+            header.classList.toggle(
+                "scrolled",
+                scrolled
+            );
+        };
+
+
+    updateHeader();
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        {
+            passive:true
+        }
+    );
+
+
+    /* =====================================================
+       4. MENÚ MÓVIL
+       ===================================================== */
+
+    const closeMenu =
+        () => {
+
+            if (!nav || !toggle)
+                return;
+
+            nav.classList.remove(
+                "nav-open"
+            );
+
+            toggle.classList.remove(
+                "open"
+            );
+
+            toggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            toggle.setAttribute(
+                "aria-label",
+                "Abrir menú"
+            );
+
+            document.body.classList.remove(
+                "nav-open"
+            );
+        };
+
+
+    if (nav && toggle && menu) {
+
+
+        /* ---------------------------------------------
+           Abrir / cerrar
+           --------------------------------------------- */
+
+        toggle.addEventListener(
             "click",
-            () => {
+            event => {
 
-                const abierto =
-                    nav.classList.toggle(
-                        "menu-open"
+                event.stopPropagation();
+
+                const isOpen =
+                    !nav.classList.contains(
+                        "nav-open"
                     );
 
 
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    abierto
-                        ? "true"
-                        : "false"
+                nav.classList.toggle(
+                    "nav-open",
+                    isOpen
                 );
 
 
-                menuButton.setAttribute(
+                toggle.classList.toggle(
+                    "open",
+                    isOpen
+                );
+
+
+                toggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+
+                toggle.setAttribute(
                     "aria-label",
-                    abierto
+                    isOpen
                         ? "Cerrar menú"
                         : "Abrir menú"
                 );
 
+
+                document.body.classList.toggle(
+                    "nav-open",
+                    isOpen
+                );
             }
         );
 
 
-        /*
-           Al pulsar un enlace cerramos el menú.
-        */
+        /* ---------------------------------------------
+           Cerrar al pulsar un enlace
+           --------------------------------------------- */
 
-        lista.querySelectorAll("a")
-            .forEach((enlace) => {
+        menu
+            .querySelectorAll("a")
+            .forEach(link => {
 
-                enlace.addEventListener(
+                link.addEventListener(
                     "click",
                     () => {
 
-                        nav.classList.remove(
-                            "menu-open"
-                        );
-
-
-                        menuButton.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-
-                        menuButton.setAttribute(
-                            "aria-label",
-                            "Abrir menú"
-                        );
+                        closeMenu();
 
                     }
                 );
 
             });
 
-    }
 
-}
+        /* ---------------------------------------------
+           Cerrar al pulsar fuera
+           --------------------------------------------- */
 
+        document.addEventListener(
+            "click",
+            event => {
 
-/* =========================================================
-   11. CERRAR MENÚ CON ESC
-   ========================================================= */
+                if (
+                    window.innerWidth <= 820 &&
+                    nav.classList.contains(
+                        "nav-open"
+                    ) &&
+                    !nav.contains(
+                        event.target
+                    )
+                ) {
 
-document.addEventListener(
-    "keydown",
-    (evento) => {
+                    closeMenu();
 
-        if (evento.key !== "Escape") return;
+                }
 
-
-        if (!nav) return;
-
-
-        nav.classList.remove(
-            "menu-open"
+            }
         );
 
 
-        const menuButton =
-            nav.querySelector(
-                ".menu-toggle, .mobile-menu-toggle"
-            );
+        /* ---------------------------------------------
+           Cerrar al volver a escritorio
+           --------------------------------------------- */
 
+        window.addEventListener(
+            "resize",
+            () => {
 
-        if (menuButton) {
+                if (
+                    window.innerWidth > 820
+                ) {
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                    closeMenu();
 
+                }
 
-            menuButton.setAttribute(
-                "aria-label",
-                "Abrir menú"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   12. CERRAR MENÚ AL CAMBIAR A ESCRITORIO
-   ========================================================= */
-
-const mediaDesktop =
-    window.matchMedia(
-        "(min-width: 851px)"
-    );
-
-
-function comprobarDesktop() {
-
-    if (!nav) return;
-
-
-    if (mediaDesktop.matches) {
-
-        nav.classList.remove(
-            "menu-open"
+            }
         );
 
 
-        const menuButton =
-            nav.querySelector(
-                ".menu-toggle, .mobile-menu-toggle"
-            );
+        /* ---------------------------------------------
+           ESC para cerrar
+           --------------------------------------------- */
 
+        document.addEventListener(
+            "keydown",
+            event => {
 
-        if (menuButton) {
+                if (
+                    event.key === "Escape" &&
+                    nav.classList.contains(
+                        "nav-open"
+                    )
+                ) {
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                    closeMenu();
 
-        }
+                    toggle.focus();
+
+                }
+
+            }
+        );
 
     }
 
-}
+
+    /* =====================================================
+       5. DETECTAR PÁGINA ACTUAL
+       ===================================================== */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .split("?")[0]
+            .split("#")[0]
+        || "index.html";
 
 
-if (mediaDesktop.addEventListener) {
+    if (menu) {
 
-    mediaDesktop.addEventListener(
-        "change",
-        comprobarDesktop
+        menu
+            .querySelectorAll("a")
+            .forEach(link => {
+
+                const href =
+                    link.getAttribute(
+                        "href"
+                    ) || "";
+
+
+                const cleanHref =
+                    href
+                        .split("#")[0]
+                        .split("?")[0]
+                        .replace(
+                            /^.\//,
+                            ""
+                        );
+
+
+                const normalized =
+                    cleanHref || "index.html";
+
+
+                if (
+                    normalized === currentPage
+                ) {
+
+                    link.classList.add(
+                        "active"
+                    );
+
+                    link.setAttribute(
+                        "aria-current",
+                        "page"
+                    );
+
+                }
+
+            });
+
+    }
+
+
+    /* =====================================================
+       6. INTERSECTION OBSERVER
+       
+       Hace que el contenido aparezca suavemente
+       mientras hacemos scroll.
+       ===================================================== */
+
+    const animatedElements =
+        document.querySelectorAll(
+            [
+                ".reveal",
+                ".fade",
+                ".hero-text",
+                ".hero-content",
+                ".hero-img",
+                ".intro",
+                ".section-heading",
+                ".section-title",
+                ".card",
+                ".glass-card",
+                ".life-post",
+                ".project-card",
+                ".contact-card",
+                ".article-preview",
+                ".biografia article",
+                ".quote"
+            ].join(",")
+        );
+
+
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add(
+                                        "visible"
+                                    );
+
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold:.12,
+
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+            );
+
+
+        animatedElements
+            .forEach(
+                element =>
+                    observer.observe(
+                        element
+                    )
+            );
+
+
+    } else {
+
+
+        animatedElements
+            .forEach(
+                element =>
+                    element.classList.add(
+                        "visible"
+                    )
+            );
+
+    }
+
+
+    /* =====================================================
+       7. ANIMACIÓN ESCALONADA DE TARJETAS
+       
+       Añade pequeños retrasos para que las tarjetas
+       no aparezcan todas a la vez.
+       ===================================================== */
+
+    const animatedGroups =
+        document.querySelectorAll(
+            ".cards, " +
+            ".cards-grid, " +
+            ".writings-grid, " +
+            ".contact-container, " +
+            ".lifestyle-feed, " +
+            ".lifestyle-categories"
+        );
+
+
+    animatedGroups.forEach(
+        group => {
+
+            const children =
+                group.children;
+
+
+            Array.from(children)
+                .forEach(
+                    (child, index) => {
+
+                        child.style
+                            .transitionDelay =
+                            `${Math.min(
+                                index * 0.07,
+                                0.35
+                            )}s`;
+
+                    }
+                );
+
+        }
     );
 
-} else {
 
-    mediaDesktop.addListener(
-        comprobarDesktop
-    );
+    /* =====================================================
+       8. AÑO AUTOMÁTICO DEL FOOTER
+       ===================================================== */
 
-}
-
-
-/* =========================================================
-   13. PARALLAX MUY SUTIL DEL HERO
-   ========================================================= */
-
-/*
-   No queremos una web llena de efectos.
-
-   Este efecto únicamente desplaza ligeramente la imagen
-   principal mientras se hace scroll.
-*/
-
-if (
-    dispositivoConRaton &&
-    heroImage
-) {
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            const scroll =
-                window.scrollY;
+    const year =
+        document.querySelector(
+            "#year"
+        );
 
 
-            if (scroll > window.innerHeight) {
-                return;
+    if (year) {
+
+        year.textContent =
+            new Date()
+                .getFullYear();
+
+    }
+
+
+    /* =====================================================
+       9. MICROINTERACCIÓN DE BOTONES
+       
+       Efecto 3D muy ligero en escritorio.
+       En móvil se desactiva.
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".boton, .btn"
+        )
+        .forEach(button => {
+
+
+            button.addEventListener(
+                "pointermove",
+                event => {
+
+                    if (
+                        window.innerWidth < 700
+                    )
+                        return;
+
+
+                    const rect =
+                        button
+                            .getBoundingClientRect();
+
+
+                    const x =
+                        event.clientX -
+                        rect.left;
+
+
+                    const y =
+                        event.clientY -
+                        rect.top;
+
+
+                    const rotateY =
+                        (
+                            (x / rect.width)
+                            - .5
+                        ) * 3;
+
+
+                    const rotateX =
+                        (
+                            (y / rect.height)
+                            - .5
+                        ) * -3;
+
+
+                    button.style.transform =
+                        `translateY(-3px)
+                         perspective(500px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)`;
+
+                }
+            );
+
+
+            button.addEventListener(
+                "pointerleave",
+                () => {
+
+                    button.style.transform =
+                        "";
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       10. EFECTO SUTIL EN TARJETAS
+       
+       Sigue el movimiento del ratón de forma muy ligera.
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".card, " +
+            ".glass-card, " +
+            ".project-card, " +
+            ".life-post, " +
+            ".contact-card"
+        )
+        .forEach(card => {
+
+
+            card.addEventListener(
+                "pointermove",
+                event => {
+
+                    if (
+                        window.innerWidth < 900
+                    )
+                        return;
+
+
+                    const rect =
+                        card
+                            .getBoundingClientRect();
+
+
+                    const x =
+                        event.clientX -
+                        rect.left;
+
+
+                    const y =
+                        event.clientY -
+                        rect.top;
+
+
+                    const rotateY =
+                        (
+                            (x / rect.width)
+                            - .5
+                        ) * 1.4;
+
+
+                    const rotateX =
+                        (
+                            (y / rect.height)
+                            - .5
+                        ) * -1.4;
+
+
+                    card.style.transform =
+                        `translateY(-7px)
+                         perspective(900px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)`;
+
+                }
+            );
+
+
+            card.addEventListener(
+                "pointerleave",
+                () => {
+
+                    card.style.transform =
+                        "";
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       11. IMÁGENES
+       
+       Lazy loading + detección de imágenes
+       que no puedan cargarse.
+       ===================================================== */
+
+    document
+        .querySelectorAll("img")
+        .forEach(image => {
+
+
+            /* Lazy loading */
+
+            if (
+                !image.hasAttribute(
+                    "loading"
+                )
+            ) {
+
+                image.setAttribute(
+                    "loading",
+                    "lazy"
+                );
+
             }
 
 
-            heroImage.style.setProperty(
-                "--hero-offset",
-                `${scroll * 0.035}px`
+            /* Decoding */
+
+            if (
+                !image.hasAttribute(
+                    "decoding"
+                )
+            ) {
+
+                image.setAttribute(
+                    "decoding",
+                    "async"
+                );
+
+            }
+
+
+            /* Error */
+
+            image.addEventListener(
+                "error",
+                () => {
+
+                    image.classList.add(
+                        "image-error"
+                    );
+
+                }
             );
 
-        },
-        { passive: true }
+        });
+
+
+    /* =====================================================
+       12. LINK DE IMAGEN / HERO
+       
+       Evita pequeños saltos visuales cuando
+       una imagen termina de cargar.
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".hero-img img, " +
+            ".life-post img, " +
+            ".project-card img"
+        )
+        .forEach(image => {
+
+            if (
+                image.complete
+            ) {
+
+                image.classList.add(
+                    "image-loaded"
+                );
+
+            } else {
+
+                image.addEventListener(
+                    "load",
+                    () => {
+
+                        image.classList.add(
+                            "image-loaded"
+                        );
+
+                    },
+                    {
+                        once:true
+                    }
+                );
+
+            }
+
+        });
+
+
+    /* =====================================================
+       13. AÑO + FECHA DE ARTÍCULOS
+       
+       Si existe un elemento con [data-year],
+       también se actualiza automáticamente.
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            "[data-year]"
+        )
+        .forEach(element => {
+
+            element.textContent =
+                new Date()
+                    .getFullYear();
+
+        });
+
+
+    /* =====================================================
+       14. PREVENIR TRANSFORMACIONES EXAGERADAS
+       
+       Al cambiar de orientación o tamaño,
+       limpiamos estados de interacción.
+       ===================================================== */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            document
+                .querySelectorAll(
+                    ".boton, .btn, .card, " +
+                    ".glass-card, .project-card, " +
+                    ".life-post, .contact-card"
+                )
+                .forEach(element => {
+
+                    element.style.transform =
+                        "";
+
+                });
+
+        }
     );
 
-}
 
+    /* =====================================================
+       15. INICIO
+       
+       Marcamos el documento como cargado.
+       Puede utilizarse en futuras animaciones.
+       ===================================================== */
 
-/* =========================================================
-   14. AÑO AUTOMÁTICO DEL FOOTER
-   ========================================================= */
+    requestAnimationFrame(
+        () => {
 
-const footerTexto =
-    document.querySelector(
-        "footer p"
+            document.documentElement
+                .classList.add(
+                    "js-ready"
+                );
+
+        }
     );
 
 
-if (footerTexto) {
-
-    footerTexto.innerHTML =
-        `
-        © ${new Date().getFullYear()}
-        LUSTAFLOW ·
-        Todos los derechos reservados.
-        `;
-
-}
-
-
-/* =========================================================
-   15. CARGA COMPLETADA
-   ========================================================= */
-
-document.documentElement.classList.add(
-    "js-enabled"
-);
- · Todos los derechos reservados.`;
-
-}
+});
