@@ -1,98 +1,53 @@
 /* =========================================================
-   LUSTAFLOW — MAIN.JS
-   Navegación + animaciones + microinteracciones
+   LUSTAFLOW 2.0
+   GLOBAL JAVASCRIPT
    ========================================================= */
 
+
+/* =========================================================
+   01. DOM READY
+   ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       1. ELEMENTOS PRINCIPALES
-       ===================================================== */
+       ELEMENTOS
+    ===================================================== */
 
     const header =
-        document.querySelector("header, .header");
+        document.querySelector(".site-header");
 
-    const nav =
-        document.querySelector(
-            "header nav, .header nav, .navbar"
-        );
+    const menuToggle =
+        document.querySelector(".menu-toggle");
 
-    const menu =
-        nav?.querySelector("ul");
+    const navLinks =
+        document.querySelector(".nav-links");
 
-    let toggle =
-        nav?.querySelector(".nav-toggle");
+    const body =
+        document.body;
 
 
     /* =====================================================
-       2. CREAR MENÚ HAMBURGUESA
-       
-       Si el HTML todavía no contiene el botón,
-       JavaScript lo genera automáticamente.
-       ===================================================== */
+       02. HEADER AL HACER SCROLL
+    ===================================================== */
 
-    if (nav && menu && !toggle) {
+    const updateHeader = () => {
 
-        toggle =
-            document.createElement("button");
-
-        toggle.className =
-            "nav-toggle";
-
-        toggle.type =
-            "button";
-
-        toggle.setAttribute(
-            "aria-label",
-            "Abrir menú"
-        );
-
-        toggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        toggle.innerHTML = `
-            <span></span>
-            <span></span>
-            <span></span>
-        `;
-
-        menu.id =
-            menu.id || "main-menu";
-
-        toggle.setAttribute(
-            "aria-controls",
-            menu.id
-        );
-
-        nav.insertBefore(
-            toggle,
-            menu
-        );
-    }
+        if (!header) return;
 
 
-    /* =====================================================
-       3. NAVBAR AL HACER SCROLL
-       ===================================================== */
+        if (window.scrollY > 30) {
 
-    const updateHeader =
-        () => {
+            header.classList.add("scrolled");
 
-            if (!header)
-                return;
+        } else {
 
-            const scrolled =
-                window.scrollY > 35;
+            header.classList.remove("scrolled");
 
-            header.classList.toggle(
-                "scrolled",
-                scrolled
-            );
-        };
+        }
+
+    };
 
 
     updateHeader();
@@ -102,103 +57,45 @@ document.addEventListener("DOMContentLoaded", () => {
         "scroll",
         updateHeader,
         {
-            passive:true
+            passive: true
         }
     );
 
 
     /* =====================================================
-       4. MENÚ MÓVIL
-       ===================================================== */
+       03. MENÚ MÓVIL
+    ===================================================== */
 
-    const closeMenu =
-        () => {
-
-            if (!nav || !toggle)
-                return;
-
-            nav.classList.remove(
-                "nav-open"
-            );
-
-            toggle.classList.remove(
-                "open"
-            );
-
-            toggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            toggle.setAttribute(
-                "aria-label",
-                "Abrir menú"
-            );
-
-            document.body.classList.remove(
-                "nav-open"
-            );
-        };
+    if (menuToggle && navLinks) {
 
 
-    if (nav && toggle && menu) {
-
-
-        /* ---------------------------------------------
-           Abrir / cerrar
-           --------------------------------------------- */
-
-        toggle.addEventListener(
+        menuToggle.addEventListener(
             "click",
-            event => {
-
-                event.stopPropagation();
+            () => {
 
                 const isOpen =
-                    !nav.classList.contains(
-                        "nav-open"
-                    );
+                    menuToggle.classList.contains("active");
 
 
-                nav.classList.toggle(
-                    "nav-open",
-                    isOpen
-                );
+                if (isOpen) {
 
+                    closeMenu();
 
-                toggle.classList.toggle(
-                    "open",
-                    isOpen
-                );
+                } else {
 
+                    openMenu();
 
-                toggle.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
+                }
 
-
-                toggle.setAttribute(
-                    "aria-label",
-                    isOpen
-                        ? "Cerrar menú"
-                        : "Abrir menú"
-                );
-
-
-                document.body.classList.toggle(
-                    "nav-open",
-                    isOpen
-                );
             }
         );
 
 
-        /* ---------------------------------------------
-           Cerrar al pulsar un enlace
-           --------------------------------------------- */
+        /* ================================================
+           CERRAR AL PULSAR UN ENLACE
+        ================================================= */
 
-        menu
+        navLinks
             .querySelectorAll("a")
             .forEach(link => {
 
@@ -214,55 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
-        /* ---------------------------------------------
-           Cerrar al pulsar fuera
-           --------------------------------------------- */
-
-        document.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    window.innerWidth <= 820 &&
-                    nav.classList.contains(
-                        "nav-open"
-                    ) &&
-                    !nav.contains(
-                        event.target
-                    )
-                ) {
-
-                    closeMenu();
-
-                }
-
-            }
-        );
-
-
-        /* ---------------------------------------------
-           Cerrar al volver a escritorio
-           --------------------------------------------- */
-
-        window.addEventListener(
-            "resize",
-            () => {
-
-                if (
-                    window.innerWidth > 820
-                ) {
-
-                    closeMenu();
-
-                }
-
-            }
-        );
-
-
-        /* ---------------------------------------------
-           ESC para cerrar
-           --------------------------------------------- */
+        /* ================================================
+           CERRAR CON ESC
+        ================================================= */
 
         document.addEventListener(
             "keydown",
@@ -270,561 +121,180 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (
                     event.key === "Escape" &&
-                    nav.classList.contains(
-                        "nav-open"
-                    )
+                    menuToggle.classList.contains("active")
                 ) {
 
                     closeMenu();
-
-                    toggle.focus();
 
                 }
 
             }
         );
 
-    }
+
+        /* ================================================
+           FUNCIONES DEL MENÚ
+        ================================================= */
+
+        function openMenu() {
+
+            menuToggle.classList.add("active");
+
+            navLinks.classList.add("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Cerrar menú"
+            );
+
+            body.classList.add("menu-open");
+
+        }
 
 
-    /* =====================================================
-       5. DETECTAR PÁGINA ACTUAL
-       ===================================================== */
+        function closeMenu() {
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .split("?")[0]
-            .split("#")[0]
-        || "index.html";
+            menuToggle.classList.remove("active");
 
+            navLinks.classList.remove("open");
 
-    if (menu) {
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
-        menu
-            .querySelectorAll("a")
-            .forEach(link => {
+            menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menú"
+            );
 
-                const href =
-                    link.getAttribute(
-                        "href"
-                    ) || "";
+            body.classList.remove("menu-open");
 
-
-                const cleanHref =
-                    href
-                        .split("#")[0]
-                        .split("?")[0]
-                        .replace(
-                            /^.\//,
-                            ""
-                        );
-
-
-                const normalized =
-                    cleanHref || "index.html";
-
-
-                if (
-                    normalized === currentPage
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                    link.setAttribute(
-                        "aria-current",
-                        "page"
-                    );
-
-                }
-
-            });
+        }
 
     }
 
 
     /* =====================================================
-       6. INTERSECTION OBSERVER
-       
-       Hace que el contenido aparezca suavemente
-       mientras hacemos scroll.
-       ===================================================== */
+       04. SCROLL REVEAL
+    ===================================================== */
 
-    const animatedElements =
-        document.querySelectorAll(
-            [
-                ".reveal",
-                ".fade",
-                ".hero-text",
-                ".hero-content",
-                ".hero-img",
-                ".intro",
-                ".section-heading",
-                ".section-title",
-                ".card",
-                ".glass-card",
-                ".life-post",
-                ".project-card",
-                ".contact-card",
-                ".article-preview",
-                ".biografia article",
-                ".quote"
-            ].join(",")
-        );
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
 
     if (
-        "IntersectionObserver"
-        in window
+        revealElements.length &&
+        "IntersectionObserver" in window
     ) {
 
 
-        const observer =
+        const revealObserver =
             new IntersectionObserver(
                 entries => {
 
-                    entries.forEach(
-                        entry => {
+                    entries.forEach(entry => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+
+                            revealObserver.unobserve(
                                 entry.target
-                                    .classList
-                                    .add(
-                                        "visible"
-                                    );
-
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
+                            );
 
                         }
-                    );
+
+                    });
 
                 },
                 {
-                    threshold:.12,
+                    threshold: 0.12,
 
                     rootMargin:
-                        "0px 0px -45px 0px"
+                        "0px 0px -40px 0px"
                 }
             );
 
 
-        animatedElements
-            .forEach(
-                element =>
-                    observer.observe(
-                        element
-                    )
-            );
+        revealElements.forEach(
+            element => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
 
 
     } else {
 
 
-        animatedElements
-            .forEach(
-                element =>
-                    element.classList.add(
-                        "visible"
-                    )
-            );
+        /* ================================================
+           FALLBACK
+        ================================================= */
+
+        revealElements.forEach(
+            element => {
+
+                element.classList.add(
+                    "visible"
+                );
+
+            }
+        );
 
     }
 
 
     /* =====================================================
-       7. ANIMACIÓN ESCALONADA DE TARJETAS
-       
-       Añade pequeños retrasos para que las tarjetas
-       no aparezcan todas a la vez.
-       ===================================================== */
+       05. AÑO AUTOMÁTICO DEL FOOTER
+    ===================================================== */
 
-    const animatedGroups =
+    const yearElement =
+        document.querySelector("#current-year");
+
+
+    if (yearElement) {
+
+        yearElement.textContent =
+            new Date().getFullYear();
+
+    }
+
+
+    /* =====================================================
+       06. PREVENIR FORMULARIOS DEMO
+    ===================================================== */
+
+    const demoForms =
         document.querySelectorAll(
-            ".cards, " +
-            ".cards-grid, " +
-            ".writings-grid, " +
-            ".contact-container, " +
-            ".lifestyle-feed, " +
-            ".lifestyle-categories"
+            'form[data-demo="true"]'
         );
 
 
-    animatedGroups.forEach(
-        group => {
+    demoForms.forEach(
+        form => {
 
-            const children =
-                group.children;
-
-
-            Array.from(children)
-                .forEach(
-                    (child, index) => {
-
-                        child.style
-                            .transitionDelay =
-                            `${Math.min(
-                                index * 0.07,
-                                0.35
-                            )}s`;
-
-                    }
-                );
-
-        }
-    );
-
-
-    /* =====================================================
-       8. AÑO AUTOMÁTICO DEL FOOTER
-       ===================================================== */
-
-    const year =
-        document.querySelector(
-            "#year"
-        );
-
-
-    if (year) {
-
-        year.textContent =
-            new Date()
-                .getFullYear();
-
-    }
-
-
-    /* =====================================================
-       9. MICROINTERACCIÓN DE BOTONES
-       
-       Efecto 3D muy ligero en escritorio.
-       En móvil se desactiva.
-       ===================================================== */
-
-    document
-        .querySelectorAll(
-            ".boton, .btn"
-        )
-        .forEach(button => {
-
-
-            button.addEventListener(
-                "pointermove",
+            form.addEventListener(
+                "submit",
                 event => {
 
-                    if (
-                        window.innerWidth < 700
-                    )
-                        return;
-
-
-                    const rect =
-                        button
-                            .getBoundingClientRect();
-
-
-                    const x =
-                        event.clientX -
-                        rect.left;
-
-
-                    const y =
-                        event.clientY -
-                        rect.top;
-
-
-                    const rotateY =
-                        (
-                            (x / rect.width)
-                            - .5
-                        ) * 3;
-
-
-                    const rotateX =
-                        (
-                            (y / rect.height)
-                            - .5
-                        ) * -3;
-
-
-                    button.style.transform =
-                        `translateY(-3px)
-                         perspective(500px)
-                         rotateX(${rotateX}deg)
-                         rotateY(${rotateY}deg)`;
+                    event.preventDefault();
 
                 }
             );
-
-
-            button.addEventListener(
-                "pointerleave",
-                () => {
-
-                    button.style.transform =
-                        "";
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       10. EFECTO SUTIL EN TARJETAS
-       
-       Sigue el movimiento del ratón de forma muy ligera.
-       ===================================================== */
-
-    document
-        .querySelectorAll(
-            ".card, " +
-            ".glass-card, " +
-            ".project-card, " +
-            ".life-post, " +
-            ".contact-card"
-        )
-        .forEach(card => {
-
-
-            card.addEventListener(
-                "pointermove",
-                event => {
-
-                    if (
-                        window.innerWidth < 900
-                    )
-                        return;
-
-
-                    const rect =
-                        card
-                            .getBoundingClientRect();
-
-
-                    const x =
-                        event.clientX -
-                        rect.left;
-
-
-                    const y =
-                        event.clientY -
-                        rect.top;
-
-
-                    const rotateY =
-                        (
-                            (x / rect.width)
-                            - .5
-                        ) * 1.4;
-
-
-                    const rotateX =
-                        (
-                            (y / rect.height)
-                            - .5
-                        ) * -1.4;
-
-
-                    card.style.transform =
-                        `translateY(-7px)
-                         perspective(900px)
-                         rotateX(${rotateX}deg)
-                         rotateY(${rotateY}deg)`;
-
-                }
-            );
-
-
-            card.addEventListener(
-                "pointerleave",
-                () => {
-
-                    card.style.transform =
-                        "";
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       11. IMÁGENES
-       
-       Lazy loading + detección de imágenes
-       que no puedan cargarse.
-       ===================================================== */
-
-    document
-        .querySelectorAll("img")
-        .forEach(image => {
-
-
-            /* Lazy loading */
-
-            if (
-                !image.hasAttribute(
-                    "loading"
-                )
-            ) {
-
-                image.setAttribute(
-                    "loading",
-                    "lazy"
-                );
-
-            }
-
-
-            /* Decoding */
-
-            if (
-                !image.hasAttribute(
-                    "decoding"
-                )
-            ) {
-
-                image.setAttribute(
-                    "decoding",
-                    "async"
-                );
-
-            }
-
-
-            /* Error */
-
-            image.addEventListener(
-                "error",
-                () => {
-
-                    image.classList.add(
-                        "image-error"
-                    );
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       12. LINK DE IMAGEN / HERO
-       
-       Evita pequeños saltos visuales cuando
-       una imagen termina de cargar.
-       ===================================================== */
-
-    document
-        .querySelectorAll(
-            ".hero-img img, " +
-            ".life-post img, " +
-            ".project-card img"
-        )
-        .forEach(image => {
-
-            if (
-                image.complete
-            ) {
-
-                image.classList.add(
-                    "image-loaded"
-                );
-
-            } else {
-
-                image.addEventListener(
-                    "load",
-                    () => {
-
-                        image.classList.add(
-                            "image-loaded"
-                        );
-
-                    },
-                    {
-                        once:true
-                    }
-                );
-
-            }
-
-        });
-
-
-    /* =====================================================
-       13. AÑO + FECHA DE ARTÍCULOS
-       
-       Si existe un elemento con [data-year],
-       también se actualiza automáticamente.
-       ===================================================== */
-
-    document
-        .querySelectorAll(
-            "[data-year]"
-        )
-        .forEach(element => {
-
-            element.textContent =
-                new Date()
-                    .getFullYear();
-
-        });
-
-
-    /* =====================================================
-       14. PREVENIR TRANSFORMACIONES EXAGERADAS
-       
-       Al cambiar de orientación o tamaño,
-       limpiamos estados de interacción.
-       ===================================================== */
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            document
-                .querySelectorAll(
-                    ".boton, .btn, .card, " +
-                    ".glass-card, .project-card, " +
-                    ".life-post, .contact-card"
-                )
-                .forEach(element => {
-
-                    element.style.transform =
-                        "";
-
-                });
-
-        }
-    );
-
-
-    /* =====================================================
-       15. INICIO
-       
-       Marcamos el documento como cargado.
-       Puede utilizarse en futuras animaciones.
-       ===================================================== */
-
-    requestAnimationFrame(
-        () => {
-
-            document.documentElement
-                .classList.add(
-                    "js-ready"
-                );
 
         }
     );
